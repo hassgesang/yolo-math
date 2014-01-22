@@ -44,34 +44,72 @@
 \maketitle
 %\begin{center}\textbf{\huge Liczby $p$-adyczne}\end{center}
 
-Celem tych notatek jest pokazanie tego, co daje $p$-adyczna ścieżka rozwoju. Naszym zamiarem nie jest naukowa ekspedycja, ale zwiedzanie, chcemy tylko zapoznać się z dziwnym światem liczb $p$-adycznych i jego prawami. Rozpoczynamy od analogii Hensela, potem badamy własności wartości bezwzględnych. Definiujemy $p$-adyczną waluację i normę, by móc udowodnić tw. Ostrowskiego i rozszerzyć ciało $\mathbb Q$ w alternatywny wobec konstrukcji ciągów Cauchy'ego sposób, co stanowi zalążek dla analizy $p$-adycznej. Drogi Czytelniku, mam nadzieję, że znajdziesz przyjemność w obcowaniu z tą piękną córką matematuni!
+Celem tych notatek jest pokazanie tego, co daje $p$-adyczna ścieżka rozwoju.
+Naszym zamiarem nie jest naukowa ekspedycja, ale zwiedzanie, chcemy tylko zapoznać się z dziwnym światem liczb $p$-adycznych i jego prawami.
+Rozpoczynamy od analogii Hensela, potem badamy własności wartości bezwzględnych.
+Definiujemy $p$-adyczną waluację i normę, by móc udowodnić tw. Ostrowskiego i rozszerzyć ciało $\mathbb Q$ w alternatywny wobec konstrukcji ciągów Cauchy'ego sposób, co stanowi zalążek dla analizy $p$-adycznej.
+Drogi Czytelniku, mam nadzieję, że znajdziesz przyjemność w obcowaniu z tą piękną córką matematuni!
 
 
-\textbf{Żarcik}. \emph{Do $p$-adycznego baru wchodzi nieskończona liczba matematyków. Piewszy zamawia $p-1$ piw, drugi $(p-1)^2$, trzeci $(p-1)^3$, i tak dalej. Barman, młody student analizy $p$-adycznej, wystawia jeden kufel, a matematycy jednogłośnie stwierdzają, że są idiotami i nalewają piwo do pełna.}
+\textbf{Żarcik}.
+\emph{Do $p$-adycznego baru wchodzi nieskończona liczba matematyków.
+Piewszy zamawia $p-1$ piw, drugi $(p-1)^2$, trzeci $(p-1)^3$, i tak dalej.
+Barman, młody student analizy $p$-adycznej, wystawia jeden kufel, a matematycy jednogłośnie stwierdzają, że są idiotami i nalewają piwo do pełna.}
 
 %\textbf{Zastosowania liczb $p$-adycznych, czyli do czego to się przydaje}: dowód faktu, że jedyna l. całkowita w ciągu sum częściowych szeregu $\sum_n 1/n$ to $1$, atakowanie pewnych równań diofantycznych, {dowód twierdzenia Monsky'ego (niemożliwe jest rozcięcie kwadratu na nieparzyście wiele trójkątów o tym samym polu)}, mechanika kwantowa (w świecie liczb $p$-adycznych można uniknąć renormalizacji, tj. traktowania rozbieżnych szeregów jak skończonych wielkości).
 
 \section{Motywacja}
-Liczby $p$-adyczne zostały wprowadzone do matematyki przez Hensela\footnote{\textsc{Kurt Hensel} (29.12.1861 -- 01.06.1941), matematyk niemiecki}. Wydaje się, że jego główną motywacją była analogia pomiędzy pierścieniem liczb całkowitych $\mathbb Z$ (razem z ciałem ułamków $\mathbb Q$) i pierścieniem wielomianów o zespolonych współczynnikach $C[X]$ (razem z ciałem funkcji wymiernych $\mathbb C(X)$). Mówiąc dokładniej: $f(X) \in \mathbb C(X)$ jest funkcją wymierną, jeżeli jest ilorazem dwóch wielomianów: 
-\begin{equation*}f(X) = \frac{P(X)}{R(X)}, \text{ gdzie } P(X)\in \mathbb C(X), R(X)\in \mathbb C(X) \text { i } R(X) \neq 0.\end{equation*}
+Liczby $p$-adyczne zostały wprowadzone do matematyki przez Hensela\footnote{\textsc{Kurt Hensel} (29.12.1861 -- 01.06.1941), matematyk niemiecki}.
+Wydaje się, że jego główną motywacją była analogia pomiędzy pierścieniem liczb całkowitych $\mathbb Z$ (razem z ciałem ułamków $\mathbb Q$) i pierścieniem wielomianów o zespolonych współczynnikach $C[X]$ (razem z ciałem funkcji wymiernych $\mathbb C(X)$).
+Mówiąc dokładniej: $f(X) \in \mathbb C(X)$ jest funkcją wymierną, jeżeli jest ilorazem dwóch wielomianów: 
+\begin{equation*}
+f(X) = \frac{P(X)}{R(X)}, \text{ gdzie }
+P(X) \in \mathbb C(X),
+R(X) \in \mathbb C(X) \text { i }
+R(X) \neq 0.
+\end{equation*}
 W podobny sposób możemy przedstawić dowolną liczbę wymierną $x \in \mathbb Q$ jako iloraz dwóch liczb całkowitych:
-\begin{equation*}x = \frac{a}{b}, \text{ gdzie } a\in \mathbb Z, b \in \mathbb Z \text { i } b \neq 0.\end{equation*}
-Co ciekawe, oba pierścienie są do siebie podobne: zarówno $\mathbb Z$ jak i $\mathbb C[X]$ są pierścieniami z jednoznacznością rozkładu (\emph{UFD, unique factorization domain}). Każda liczba całkowita może zostać jednoznacznie przedstawiona jako iloczyn $\pm 1$ i skończonej liczby liczb pierwszych, każdy wielomian może zostać jednoznacznie zapisany jako $P(X) = a(X - z_1)(X - z_2)\cdot\ldots\cdot(X - z_n)$, gdzie $a$ i $z_1, z_2, \cdots, z_n$ są liczbami zespolonymi. Hensel zauważył, że \emph{liczby pierwsze $p\in\mathbb Z$ są odpowiednikiem wielomianów pierwszego stopnia $X - z \in \mathbb C[X]$}. Dotychczas nie powiedzieliśmy niczego godnego uwagi. Henselowi udało się jednak dostrzec, że analogia jest głębsza. Mając dany wielomian $P(X)$ i liczbę $z \in \mathbb C$ możemy zapisać (np. korzystając z rozwinięcia w szereg Taylora\footnote{\textsc{Brook Taylor} (18.08.1685 -- 29.12.1731), matematyk angielski.}) wielomian w formie
+\begin{equation*}
+x = \frac{a}{b}, \text{ gdzie }
+a \in \mathbb Z,
+b \in \mathbb Z \text { i }
+b \neq 0.
+\end{equation*}
+Co ciekawe, oba pierścienie są do siebie podobne: zarówno $\mathbb Z$ jak i $\mathbb C[X]$ są pierścieniami z jednoznacznością rozkładu (\emph{UFD, unique factorization domain}).
+Każda liczba całkowita może zostać jednoznacznie przedstawiona jako iloczyn $\pm 1$ i skończonej liczby liczb pierwszych, każdy wielomian może zostać jednoznacznie zapisany jako $P(X) = a(X - z_1)(X - z_2)\cdot\ldots\cdot(X - z_n)$, gdzie $a$ i $z_1, z_2, \cdots, z_n$ są liczbami zespolonymi.
+Hensel zauważył, że \emph{liczby pierwsze $p\in\mathbb Z$ są odpowiednikiem wielomianów pierwszego stopnia $X - z \in \mathbb C[X]$}.
+Dotychczas nie powiedzieliśmy niczego godnego uwagi.
+Henselowi udało się jednak dostrzec, że analogia jest głębsza. 
+Mając dany wielomian $P(X)$ i liczbę $z \in \mathbb C$ możemy zapisać (np. korzystając z rozwinięcia w szereg Taylora\footnote{\textsc{Brook Taylor} (18.08.1685 -- 29.12.1731), matematyk angielski.}) wielomian w formie
 \begin{align*}
-P(X) = a_0 + a_1(X-z) + a_2(X-z)^2 + \cdots + a_n(X-z)^n = \sum_{k=0}^n a_k(X-z)^k, \text{ gdzie } a_k \in\mathbb C
+P(X) = a_0 + a_1(X-z) + a_2(X-z)^2 + \cdots + a_n(X-z)^n
+     = \sum_{k=0}^n a_k(X-z)^k, \text{ gdzie } a_k \in\mathbb C
 \end{align*}
 To działa też dla liczb całkowitych (na początek tylko dodatnich): mając liczbę całkowitą $m$ i liczbę pierwszą $p$ możemy zapisać $m$ w systemie pozycyjnym o podstawie $p$:
 \begin{align*}
-m & = a_0 + a_1p+ a_2p^2 + \cdots + a_np^n = \sum_{k=0}^n a_kp^k, \text{ gdzie } a_k \in\mathbb Z \text{ i } 0 \le a_k \le p-1
+m & = a_0 + a_1p+ a_2p^2 + \cdots + a_np^n
+    = \sum_{k=0}^n a_kp^k, \text{ gdzie } a_k \in \mathbb Z \text{ i } 0 \le a_k \le p-1
 \end{align*}
-Dlaczego takie rozwinięcia są ciekawe? Dają nam pewną lokalną wiedzę! Rozwinięcie w potęgi $(X-z)$ daje nam informację o tym, czy $P(X)$ znika w $z$ i do którego rzędu. Rowinięcie o podstawie $p$ mówi nam, czy i jak bardzo $m$ jest podzielne przez $p$. Oto przykład: $72 = 0 + 0 \cdot 3^1 + 2\cdot 3^2+ 2\cdot 3^3$, czyli $3^2\mid 72$. Dla wielomianów i ich ilorazów możemy posunąć się jeszcze dalej. Weźmy $f(X) \in \mathbb C(X)$ i $z\in\mathbb C$, zawsze istnieje rozwinięcie
+Dlaczego takie rozwinięcia są ciekawe?
+Dają nam pewną lokalną wiedzę!
+Rozwinięcie w potęgi $(X-z)$ daje nam informację o tym, czy $P(X)$ znika w $z$ i do którego rzędu.
+Rowinięcie o podstawie $p$ mówi nam, czy i jak bardzo $m$ jest podzielne przez $p$.
+Oto przykład: $72 = 0 + 0 \cdot 3^1 + 2\cdot 3^2+ 2\cdot 3^3$, czyli $3^2\mid 72$.
+Dla wielomianów i ich ilorazów możemy posunąć się jeszcze dalej. 
+Weźmy $f(X) \in \mathbb C(X)$ i $z\in\mathbb C$, zawsze istnieje rozwinięcie
 \begin{align*}
-f(X) & = \frac{P(X)}{R(X)} = \sum_{k\ge n_0} a_k(X-z)^k = a_{n_0} (X-z)^{n_0} + a_{1+n_0} (X-z)^{1+n_0} + \dots
+f(X) & = \frac{P(X)}{R(X)}
+       = \sum_{k\ge n_0} a_k(X-z)^k
+       = a_{n_0} (X-z)^{n_0} + a_{1+n_0} (X-z)^{1+n_0} + \dots
 \end{align*}
+To nic innego jak tylko rozwinięcie w szereg Laurenta\footnote{\textsc{Pierre Alphonse Laurent} (18.07.1813 -- 02.09.1854), matematyk francuski.}, znane z analizy zespolonej, które różni się znacząco od poprzedniego (szeregu)!
+Po pierwsze, być może $n_0<0$, tj. pierwszy wykładnik jest ujemny, czyli $z$ jest pierwiastkiem $R(X)$, ale nie $P(X)$.
+W języku analizy mówimy, że $f(X)$ ma biegun w $z$ rzędu $-n_0$. 
+Po drugie, szereg zazwyczaj nie jest skończony. Okazuje się, że jest on skończony wtedy i tylko wtedy, gdy zapiszemy funkcję $f(X) = P(X)/R(X)$ jako nieskracalny ułamek, a $R(X)$ okaże się być potęgą $(X-z)$.
+Okazuje się też, że $f(z')$ jest zbieżnym szeregiem, o ile $z'$ jest prawie (ale nie dokładnie!) równe $z$.
 
-To nic innego jak tylko rozwinięcie w szereg Laurenta\footnote{\textsc{Pierre Alphonse Laurent} (18.07.1813 -- 02.09.1854), matematyk francuski.}, znane z analizy zespolonej, które różni się znacząco od poprzedniego (szeregu)! Po pierwsze, być może $n_0<0$, tj. pierwszy wykładnik jest ujemny, czyli $z$ jest pierwiastkiem $R(X)$, ale nie $P(X)$. W języku analizy mówimy, że $f(X)$ ma biegun w $z$ rzędu $-n_0$. Po drugie, szereg zazwyczaj nie jest skończony. Okazuje się, że jest on skończony wtedy i tylko wtedy, gdy zapiszemy funkcję $f(X) = P(X)/R(X)$ jako nieskracalny ułamek, a $R(X)$ okaże się być potęgą $(X-z)$. Okazuje się też, że $f(z')$ jest zbieżnym szeregiem, o ile $z'$ jest prawie (ale nie dokładnie!) równe $z$.
-
-Traktujemy szeregi jako formalne obiekty i nie przejmujemy się tym, czy są zbieżne. Oto przykład: niech $f(X) = {X}/{(X-1)}$.
+Traktujemy szeregi jako formalne obiekty i nie przejmujemy się tym, czy są zbieżne.
+Oto przykład: niech $f(X) = {X}/{(X-1)}$.
 Będziemy rozwijać tę funkcję dla różnych $z$, co jest po prostu ćwiczeniem z analizy. Jeśli $z=0$, to 
 \begin{align*}
 \frac{X}{X-1} & 
@@ -79,40 +117,41 @@ Będziemy rozwijać tę funkcję dla różnych $z$, co jest po prostu ćwiczenie
  = -X (1+X+X^2+X^3+\dots)
  = -X -X^2-X^3-X^4-\dots
 \end{align*}
-pokazuje nam, że $f(0) = 0$ z krotnością jeden. Weźmy teraz $z=1$ i zauważmy, że
+pokazuje nam, że $f(0) = 0$ z krotnością jeden.
+Weźmy teraz $z=1$ i zauważmy, że
 \begin{equation*}
 \frac{X}{X-1}
  = \frac{1+X-1}{X-1}
  = (X-1)^{-1}+ 1
 \end{equation*}
-To oznacza, że w tym miejscu mamy do czynienia z biegunem rzędu jeden (a rozwinięcie jest skończone!). Ustalmy wreszcie $z=2$, nie jest to ani biegun, ani miejsce zerowe, mamy
+To oznacza, że w tym miejscu mamy do czynienia z biegunem rzędu jeden (a rozwinięcie jest skończone!).
+Ustalmy wreszcie $z=2$, nie jest to ani biegun, ani miejsce zerowe, mamy
 \begin{equation*}
 \frac{X}{X-1}
  = 2 - (X-2) + (X-2)^2-(X-2)^3+\dots
 \end{equation*}
-Czas na puentę. Każda funkcja wymierna może być wyrażona jako szereg, którego wyrazy są krotnościami potęg \emph{pierwszego}\footnote{Informacja dla wiecznie nienasyconych: ideały generowane przez elementy postaci $(X-z)$ są dokładnie ideałami pierwszymi pierścienia $\mathbb C[X]$, więc mamy prawo nazywać je pierwszymi} wielomianu $(X-z)$. Pomysłem Hensela było rozciągnięcie analogii między $\mathbb Z$ i $\mathbb C[X]$ na takie rozwinięcia. Radzimy sobie dobrze z liczbami całkowitymi, co z ułamkami? Zgodnie z intuicją, zapisujemy licznik i mianownik jako sumę potęg $p$, a następnie dzielimy formalnie. Najlepiej widać to na przykładzie, ustalmy więc $p=3$, $a=21$, $b=19$. Łatwo widać, że:
+Czas na puentę.
+Każda funkcja wymierna może być wyrażona jako szereg, którego wyrazy są krotnościami potęg \emph{pierwszego}\footnote{Informacja dla wiecznie nienasyconych: ideały generowane przez elementy postaci $(X-z)$ są dokładnie ideałami pierwszymi pierścienia $\mathbb C[X]$, więc mamy prawo nazywać je pierwszymi} wielomianu $(X-z)$.
+Pomysłem Hensela było rozciągnięcie analogii między $\mathbb Z$ i $\mathbb C[X]$ na takie rozwinięcia.
+Radzimy sobie dobrze z liczbami całkowitymi, co z ułamkami? 
+Zgodnie z intuicją, zapisujemy licznik i mianownik jako sumę potęg $p$, a następnie dzielimy formalnie.
+Najlepiej widać to na przykładzie, ustalmy więc $p=3$, $a=21$, $b=19$.
+Łatwo widać, że:
 \begin{align*}
-a & = 21= 0+1\cdot 3+2\cdot 3^2 = p+2p^2\\
+a & = 21= 0+1\cdot 3+2\cdot 3^2 = p+2p^2 \\
 b & = 19 = 1 + 0 \cdot 3 + 2 \cdot 3^2 = 1+2p^2 \\
 \frac{a}{b} &
  = \frac{p+2p^2}{1+2p^2}
  = p + 2p^2 + p^3 + p^4 + 2p^5 + 2p^6 + p^9 + 2p^{10} + p^{12} + p^{13} + 2p^{16} + 2p^{17} + p^{18}\dots
 \end{align*}
 
-
-
 \textbf{Tutaj czegoś brakuje.}
 
 %Rozwińmy funkcję $\log (x+1)$ w szereg MacLaurina: mamy $\log(x+1) = x - x^2/2 + x^3/3 - x^4/4 + \dots$. Wiemy, że potęgi dwójki są małe w $\mathbb Q_2$, podstawmy $x= -2$ do rozwinięcia, by policzyć $\log -1$.
 %\begin{equation*}\log (-1) = \log(1-2) = -\left(2+\frac{2^2}{2}+\frac{2^3}{3}+\frac{2^4}{4} + \cdots\right)\end{equation*}
 %Szereg jest bardzo rozbieżny w $\mathbb R$, ale w magicznym świecie liczb $2$-adycznych jest jak najbardziej sumowalny. A skoro jest sumowalny, to musi zbiegać do zera, albowiem $2\log(-1) = \log(1) = 0.$ To oznacza, że sumy częściowe 
+
 \section{Wstęp}
-%\begin{abstract}
-
-%
-
-
-
 W tym rozdziale $\mathbb K$ będzie oznaczało dowolne ustalone ciało, zaś $\mathbb R_+$ będzie zbiorem $\{x\in\mathbb R:x\ge 0\}$.
 Przypomnijmy, że ciało to przemienny pierścień, w którym wszystkie niezerowe elementy są odwracalne, tzn. jest to taka struktura $(K,\oplus, \odot,1,0)$, która spełnia określone warunki:
 \begin{enumx}
