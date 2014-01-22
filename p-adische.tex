@@ -389,7 +389,7 @@ Norma $|\cdot|$ jest niearchimedesowska wtedy i tylko wtedy, gdy dla dowolnych $
 
 \begin{proof}
 Najpierw implikacja w prawo: stosujemy własność niearchimedesowską do równania $(x-y) = (x-z) + (z-y)$.
-Potem implikacja w lewo: ustalamy $y = -y'$ i $z=0$ w nierówności z faktu: $|x- (-y')| = |x+y'| \le \max (|x-0|, |0-y'|) = \max (|x|, |y'|)$.
+Potem w lewo: ustalamy $y = -y'$ i $z=0$ w nierówności z faktu: $|x- (-y')| = |x+y'| \le \max (|x-0|, |0-y'|) = \max (|x|, |y'|)$.
 \end{proof}
 
 Nierówność z ostatniego faktu znana jest jako \emph{nierówność ultrametryczna}.
@@ -398,133 +398,277 @@ Przestrzeń z ultrametryką nazywamy przestrzenią ultrametryczną.
 Okazuje się, że takie przestrzenie zachowują się dziwnie, co nie powinno dziwić, bo sposób mierzenia odległości jest dziwny.
 To ciekawe, że znalazły już swoje zastosowanie: używa się ich do opisu szkła spinowego.
 
-\begin{fkt}Niech $\mathbb K$ będzie ciałem, zaś $|\cdot|$ niearchimedesowską normą bezwzględną na $\mathbb K$. Jeśli $x,y$ są ustalonymi elementami $\mathbb K$ o różnych normach, tzn. $|x| \neq |y|$, to $|x+y| = \max(|x|, |y|)$.\end{fkt}
+\begin{fkt}
+Niech $\mathbb K$ będzie ciałem, zaś $|\cdot|$ niearchimedesowską normą bezwzględną na $\mathbb K$.
+Jeśli $x, y$ są ustalonymi elementami $\mathbb K$ o różnych normach, tzn. $|x| \neq |y|$, to $|x+y| = \max(|x|, |y|)$.
+\end{fkt}
 
-\begin{proof}Bez straty ogólności zakładamy, że $|x| > |y|$, jeśli jest inaczej, zamieniamy $x$ i $y$ miejscami. Wiemy, że $|x+y| \le |x| = \max(|x|, |y|)$. Z drugiej strony, $x = (x+y) - y$, więc $|x| \le \max(|x+y|, |y|)$. Pamiętajmy jednak, że $|x| > |y|$, więc musi być $\max(|x+y|, |y|) = |x+y|$. Pokazaliśmy, że $|x+y| \le |x|$ i $|x+y| \ge x$, a zatem $|x| = |x+y|$.\end{proof}
+\begin{proof}
+Bez straty ogólności zakładamy, że $|x| > |y|$, jeśli jest inaczej, zamieniamy $x$ i $y$ miejscami.
+Wiemy, że $|x+y| \le |x| = \max(|x|, |y|)$.
+Z drugiej strony, $x = (x+y) - y$, więc $|x| \le \max(|x+y|, |y|)$.
+Pamiętajmy jednak, że $|x| > |y|$, więc musi być $\max(|x+y|, |y|) = |x+y|$.
+Pokazaliśmy, że $|x+y| \le |x|$ i $|x+y| \ge x$, a zatem $|x| = |x+y|$.
+\end{proof}
 
 Efektem ubocznym jest inny interesujący fakt, którego znaczenie kiedyś docenimy:
 
-\begin{fkt}Wszystkie \emph{trójkąty} w ultraprzestrzeni są równoramienne.\end{fkt}
+\begin{fkt}
+Wszystkie \emph{trójkąty} w ultraprzestrzeni są równoramienne.
+\end{fkt}
 
-\begin{proof}Niech $x,y,z\in\mathbb K$ będą elementami naszej przestrzeni, wierzchołkami \emph{trójkąta}. Długości jego boków wyrażają się przez $d(x,y) = |x-y|$, $d(y,z) = |y-z|$, $d(x,z) = |x-z|$. W oczywisty sposób zachodzi $(x-y) + (y-z) = (x-z)$, więc wzywamy do pomocy poprzedni fakt: jeśli $|x-y| \neq |y-z|$, to $|x-z|$ jest równe większej z dwóch pozostałych liczb, co dowodzi równoramienności \emph{trójkąta}. \end{proof}
+\begin{proof}
+Niech $x,y,z\in\mathbb K$ będą elementami naszej przestrzeni, wierzchołkami \emph{trójkąta}.
+Długości jego boków wyrażają się przez $d(x,y) = |x-y|$, $d(y,z) = |y-z|$, $d(x,z) = |x-z|$.
+W oczywisty sposób zachodzi $(x-y) + (y-z) = (x-z)$, więc wzywamy do pomocy poprzedni fakt: jeśli $|x-y| \neq |y-z|$, to $|x-z|$ jest równe większej z dwóch pozostałych liczb.
+To dowodzi równoramienności \emph{trójkąta}.
+\end{proof}
 
-To, co udało nam się pokazać, jest bardzo nieintuicyjne, a jednocześnie ma duży wpływ na topologię naszego ciała. Może spróbujemy zobaczyć co stanie się, kiedy ograniczymy się do $p$-adycznej wartości bezwzględnej? Nie zaszkodzi.
+To, co udało nam się pokazać, jest bardzo nieintuicyjne, a jednocześnie ma duży wpływ na topologię naszego ciała.
+Może spróbujemy zobaczyć co stanie się, kiedy ograniczymy się do $p$-adycznej wartości bezwzględnej?
+Nie zaszkodzi.
 
-Jak zwykle, piszemy $|x| = p^{-v_p(x)}$. Dla klarowności ograniczymy się do przypadku $x,y\in\mathbb Z$. Umówmy się, że $v_p(x) = a$ oraz $v_p(y)= b$, czyli $x = p^a x'$, $y = p^m y'$ oraz $p\nmid x'y'$. Przetłumaczmy to na wartości bezwzględne: $|x| = p^{-a}$ i $|y| = p^{-b}$. 
+Jak zwykle, piszemy $|x| = p^{-v_p(x)}$.
+Dla klarowności ograniczymy się do przypadku $x,y\in\mathbb Z$. 
+Umówmy się, że $v_p(x) = a$ oraz $v_p(y)= b$, czyli $x = p^a x'$, $y = p^m y'$ oraz $p\nmid x'y'$.
+Przetłumaczmy to na wartości bezwzględne: $|x| = p^{-a}$ i $|y| = p^{-b}$. 
 
-Okazuje się, że $|x| > |y|$, jeśli tylko $a < b$, niech zatem $b = a + \varepsilon$ (oczywiście $\varepsilon > 0$). Skoro tak, to $x +y = p^ax' + p^{a+\varepsilon} y' = p ^a\left(x' + p^\varepsilon y'\right)$,
-przy czym $p\nmid x'$, więc $p \nmid (x' + p^\varepsilon y')$ i $v_p(x+y) = a$, a stąd wiemy już, że $|x+y | = p^{-a} = |x|$, tak jak przypuszczaliśmy.
+Zauważmy, że $|x| > |y|$, jeśli tylko $a < b$.
+Niech zatem $b = a + \varepsilon$, $\varepsilon > 0$.
+Skoro tak, to $x + y = p^a x' + p^{a + \varepsilon} y' = p ^a \left(x' + p^\varepsilon y'\right)$,
+przy czym $p \nmid x'$.
+Z tego wynika, że $p \nmid (x' + p^\varepsilon y')$ i $v_p(x+y) = a$, a zatem $|x+y | = p^{-a} = |x|$, tak jak przypuszczaliśmy.
 
-Zajmijmy się teraz drugim przypadkiem, tj. niech $|x| = |y|$ i $a = b$. Teraz $x+y = p^a(x'+y')$. Chociaż $p\nmid x'$ i $p \nmid y'$, to może się zdarzyć, że $p | (x'+y')$. Jedyne, czego możemy być pewni, to to, że $v_p(x+y) \ge n = \min(v_p(x), v_p(y))$. To oznacza jednak, że $|x+y| \le \max(|x|, |y|) = |x| = |y|$, mogliśmy spodziewać się oczekiwanego.
+Zajmijmy się teraz drugim przypadkiem, tj. niech $|x| = |y|$ i $a = b$.
+Teraz $x+y = p^a(x'+y')$.
+Chociaż $p\nmid x'$ i $p \nmid y'$, to może się zdarzyć, że $p | (x'+y')$.
+Jedyne, czego możemy być pewni, to to, że $v_p(x+y) \ge n = \min(v_p(x), v_p(y))$.
+To oznacza jednak, że $|x+y| \le \max(|x|, |y|) = |x| = |y|$, mogliśmy spodziewać się oczekiwanego.
 
-\begin{prb}Rozpatrzmy $5$-adyczną topologię na $\mathbb Q$. Jakie są długości boków trójkąta o wierzchołkach $2/15$, $1/5$, $7/15$?\end{prb}
+\begin{prb}
+Rozpatrzmy $5$-adyczną topologię na $\mathbb Q$.
+Jakie są długości boków trójkąta o wierzchołkach $2/15$, $1/5$, $7/15$?
+\end{prb}
 
-W każdej przestrzeni metrycznej od trójkątów dużo bardziej ciekawsze są kule. Chyba nikt nie przypuszcza, że będą zachowywać się normalnie. Zacznijmy od podania ich definicji.
+W każdej przestrzeni metrycznej od trójkątów dużo bardziej ciekawsze są kule.
+Chyba nikt nie przypuszcza, że będą zachowywać się normalnie.
+Zacznijmy od podania ich definicji.
 
-\begin{dff}Niech $\mathbb K$ będzie ciałem z wartością bezwględną $|\cdot|$, $a$ elementem $\mathbb K$, zaś $r$ dodatnią liczbą rzeczywistą. Kula otwarta to zbiór $B(a,r)$, kula domknięta to zbiór $\overline{B}(a,r)$.
+\begin{dff}
+Niech $\mathbb K$ będzie ciałem z wartością bezwględną $|\cdot|$, $a$ elementem $\mathbb K$, zaś $r$ dodatnią liczbą rzeczywistą. 
+Kula otwarta to zbiór $B(a,r)$, kula domknięta to zbiór $\overline{B}(a,r)$.
 \begin{align*}
-B(a,r) & = \left\{x\in\mathbb K: d(x,a) < r \right\} = \left\{x\in\mathbb K: |x-a| < r \right\} \\
-\overline{B}(a,r) & = \left\{x\in\mathbb K: d(x,a) \le r \right\} = \left\{x\in\mathbb K: |x-a| \le r \right\}
+B(a,r) &
+ = \left\{x\in\mathbb K: d(x,a) < r \right\}
+ = \left\{x\in\mathbb K: |x-a| < r \right\} \\
+\overline{B}(a,r) &
+ = \left\{x\in\mathbb K: d(x,a) \le r \right\}
+ = \left\{x\in\mathbb K: |x-a| \le r \right\}
 \end{align*}
 \end{dff}
 
-Garść przydatnych definicji: {Zbiór jest otwarty, jeżeli dowolny jego element należy do otwartej kuli zawartej w tym zbiorze. Zbiór jest domknięty, jeżeli jego dopełnienie jest zbiorem otwartym. Punkt nazywamy brzegowym, jeżeli dowolna kula o środku w tym punkcie zawiera punkty należące i nienależące do zbioru. Zbiór jest domknięty wtedy i tylko wtedy, gdy zawiera wszystkie swe punkty brzegowe.}
+Garść przydatnych definicji:
+\begin{enumx}
+\item Zbiór jest otwarty, jeżeli dowolny jego element należy do otwartej kuli zawartej w tym zbiorze.
+\item Zbiór jest domknięty, jeżeli jego dopełnienie jest zbiorem otwartym.
+\item Punkt nazywamy brzegowym, jeżeli dowolna kula o środku w tym punkcie zawiera punkty należące i nienależące do zbioru.
+\item Zbiór jest domknięty wtedy i tylko wtedy, gdy zawiera wszystkie swe punkty brzegowe.
+\end{enumx}
 
-To są standardowe definicje kul dla dowolnej przestrzeni metrycznej. Kule otwarte są pierwowzorem dla zbiorów otwartych, kule domknięte -- dla zbiorów domknietych.
+To są standardowe definicje kul dla dowolnej przestrzeni metrycznej.
+Kule otwarte są pierwowzorem dla zbiorów otwartych, kule domknięte -- dla zbiorów domknietych.
+Powyższe stwierdzenie jest prawdziwe niezależnie od rodzaju wartości bezwzględnej
+Poniższe są raczej zaskakujące.
 
-Powyższe stwierdzenie jest prawdziwe niezależnie od rodzaju wartości bezwzględnej. Poniższe jest raczej zaskakujące.
-
-\begin{fkt}Niech $\mathbb K$ będzie ciałem z niearchimedesowską wartością bezwzględną.
+\begin{fkt}
+Niech $\mathbb K$ będzie ciałem z niearchimedesowską wartością bezwzględną.
 
 \begin{enumx}
 \item Każdy punkt zawarty w kuli otwartej jest jej środkiem: $b\in B(a,r) \Rightarrow B(a,r) = B(b,r)$
 \item Każdy punkt zawarty w kuli zamkniętej jest jej środkiem: $b\in \overline{B}(a,r) \Rightarrow \overline{B}(a,r) = \overline{B}(b,r)$
 \item Zbiór $B(a,r)$ jest otwarty i domknięty.
 \item Zbiór $\overline{B}(a,r)$ jest otwarty i domknięty dla $r\neq 0$.
-\item Dowolne dwie kule otwarte są albo rozłączne albo zawarte jedna w drugiej. Niech $a,b\in\mathbb K$, $r,s\in\mathbb R_+^\times$. Wtedy $B(a,r) \cap B(b,s) \neq \emptyset$ wtedy i tylko wtedy, gdy $B(a,r) \subset B(b,s)$ lub $B(a,r) \supset B(b,s)$.
-\item Dowolne dwie kule zamknięte są albo rozłączne albo zawarte jedna w drugiej. Niech $a,b\in\mathbb K$, $r,s\in\mathbb R_+^\times$. Wtedy $\overline{B}(a,r) \cap \overline{B}(b,s) \neq \emptyset$ jest równoważne z $\overline{B}(a,r) \subset \overline{B}(b,s)$ lub $\overline{B}(a,r) \supset \overline{B}(b,s)$.
+\item Dowolne dwie kule otwarte są albo rozłączne albo zawarte jedna w drugiej.
+Niech $a,b\in\mathbb K$, $r,s\in\mathbb R_+^\times$.
+\[B(a,r) \cap B(b,s) \neq \emptyset \iff B(a,r) \subset B(b,s) \vee B(a,r) \supset B(b,s)\]
+\item Dowolne dwie kule zamknięte są albo rozłączne albo zawarte jedna w drugiej.
+Niech $a,b\in\mathbb K$, $r,s\in\mathbb R_+^\times$.
+\[\overline{B}(a,r) \cap \overline{B}(b,s) \neq \emptyset \iff \overline{B}(a,r) \subset \overline{B}(b,s) \vee \overline{B}(a,r) \supset \overline{B}(b,s)\]
 \end{enumx}\end{fkt}
 
 \begin{proof}
 Dziwność tych stwierdzeń opiera się na fakcie: wszystkie trójkąty są równoramienne.
 
-\textbf{1.} $b\in B(a,r)$ wtedy i tylko wtedy, gdy $|b-a| < r$. Biorąc dowolne $x$ takie, że $|x-a| < r$, korzystamy z własności niearchimedesowskiej by napisać, że zachodzi $|x-b| \le \max (|x-a|, |b-a|) < r$, czyli $x\in B(b,r)$. Wiemy, że $B(a,r) \subset B(b,r)$, ale możemy pokazać zawieranie w drugą stronę i dostać równość zbiorów.
+\textbf{1.} $b\in B(a,r)$ wtedy i tylko wtedy, gdy $|b-a| < r$.
+Biorąc dowolne $x$ takie, że $|x-a| < r$, korzystamy z własności niearchimedesowskiej by napisać, że zachodzi $|x-b| \le \max (|x-a|, |b-a|) < r$.
+To oznacza, że $x\in B(b,r)$.
+Wiemy, że $B(a,r) \subset B(b,r)$, ale możemy pokazać zawieranie w drugą stronę i dostać równość zbiorów.
 
 \textbf{2.} Zamiana $<$ na $\le$ w dowodzie własności 1.
 
-\textbf{3.} Otwarta kula $B(a,r)$ jest zawsze zbiorem otwartym (jednolinijkowy dowód: dowolny $x$ w $B(a,r)$ jest w $B(a,r)$, która zawiera się w $B(a,r)$!). Weźmy dowolny $x$ na brzegu $B(a,r)$, to oznacza, że kula o środku w $x$ musi zawierać punkty, które należą do $B(a,r)$. Weźmy $s\le r$ i spójrzmy na otwartą kulę $B(x,s)$. Ponieważ $x$ jest punktem brzegowym, to $B(a,r) \cap B(s,x) \neq \emptyset$, więc istnieje $y\in B(a,r) \cap B(s,x)$. To oznacza, że $|y-a| < r$ i $|y-x| < s \le r$. Aplikując nierówność niearchimedesowską dostajemy $|x-a| \le \max(|x-y|, |y-a|) < \max(s,r) \le r$, czyli $x\in B(a,r)$. Każdy punkt brzegowy $B(a,r)$ należy do $B(a,r)$, czyli zbiór jest domknięty.
+\textbf{3.} Otwarta kula $B(a,r)$ jest zawsze zbiorem otwartym\footnote{Magiczny dowód: dowolny $x$ w $B(a,r)$ jest w $B(a,r)$, która zawiera się w $B(a,r)$!}.
+Weźmy dowolny $x$ na brzegu $B(a,r)$. To oznacza, że kula o środku w $x$ musi zawierać punkty, które należą do $B(a,r)$.
+Weźmy $s\le r$ i spójrzmy na otwartą kulę $B(x,s)$. 
+Ponieważ $x$ jest punktem brzegowym, to $B(a,r) \cap B(s,x) \neq \emptyset$, więc istnieje $y\in B(a,r) \cap B(s,x)$. 
+To oznacza, że $|y-a| < r$ i $|y-x| < s \le r$.
+Aplikując nierówność niearchimedesowską dostajemy $|x-a| \le \max(|x-y|, |y-a|) < \max(s,r) \le r$, czyli $x\in B(a,r)$.
+Każdy punkt brzegowy $B(a,r)$ należy do $B(a,r)$, czyli zbiór jest domknięty.
 
 \textbf{4.} Analogicznie do 3.
 
-\textbf{5.} Bez straty ogólności możemy rozpatrzeć tylko przypadek, gdy $r\le s$. Jeżeli iloczyn jest niepusty, to istnieje $c \in B(a,r) \cap B(b,s)$. Z pierwszej własności wnioskujemy, że $B(a,r) = B(c,r)$ i $B(b,s) = B(c,s)$. Zatem: $B(a,r) = B(c,r) \subset B(c,s) = B(b,s).$
+\textbf{5.} Bez straty ogólności możemy rozpatrzeć tylko przypadek, gdy $r\le s$.
+Jeżeli iloczyn jest niepusty, to istnieje $c \in B(a,r) \cap B(b,s)$.
+Zatem: $B(a,r) = B(c,r) \subset B(c,s) = B(b,s)$ (równości zawdzięczamy pierwszemu stwierdzeniu, zawieranie -- definicji kuli).
 
-\textbf{6.} Analogicznie do 5. z użyciem 2. zamiast 1.\end{proof}
-\begin{prb}Dlaczego musimy założyć w punkcie 4., że $r\neq 0$?\end{prb}
+\textbf{6.} Analogicznie do 5. z użyciem 2. zamiast 1.
+\end{proof}
 
-\begin{prbh}Niech $\mathbb K = \mathbb Q$ i $|\cdot| = |\cdot|_p$. Domknięta kula $\overline{B}(0,1)$jest sumą rozłącznych kul otwartych\footnote{To jest inny dowód faktu, że jednostkowa kula domknięta jest otwarta, gdyż suma zbiorów otwartych jest otwarta.}: $\overline{B}(0,1) = \bigcup_{k=0}^{p-1} B(k,1)$. \end{prbh}
+\begin{prb}
+Dlaczego musimy założyć w punkcie 4., że $r\neq 0$?
+\end{prb}
 
-\begin{prb}Dlaczego $B(1,1) = B(1,1/2) = \overline{B}(1,1/5)$ z $5$-adyczną normą na $\mathbb Q$? Co tu się dzieje?\end{prb}
+\begin{prbh}
+Niech $\mathbb K = \mathbb Q$ i $|\cdot| = |\cdot|_p$. 
+Domknięta kula $\overline{B}(0,1)$ jest sumą rozłącznych kul otwartych\footnote{To jest inny dowód faktu, że jednostkowa kula domknięta jest otwarta, gdyż suma zbiorów otwartych jest otwarta.}: $\overline{B}(0,1) = \bigcup_{k=0}^{p-1} B(k,1)$.
+\end{prbh}
+
+\begin{prb}
+Dlaczego $B(1,1) = B(1,1/2) = \overline{B}(1,1/5)$ z $5$-adyczną normą na $\mathbb Q$?
+Co tu się dzieje?
+\end{prb}
 
 Zbiory spójne nie wow, przestrzeń taka rozłączna.
 
 \section{Algebra}
-Nie możemy skupiać naszej uwagi wyłącznie na geometrycznym aspekcie normy. Jeżeli nie umiemy algebry, to jedyne, co nam pozostaje, to wiara w to, że kiedyś nadejdzie taki dzień, że zostanie przez nas zrozumiana. Okazuje się na przykład, że połączenia między (niearchimedesowskimi) wartościami bezwzględnymi i algebraiczną strukturą ciała są dosyć poważne, więc czemu nie mielibyśmy się temu przyjrzeć?
+Nie możemy skupiać naszej uwagi wyłącznie na geometrycznym aspekcie normy.
+Jeżeli nie umiemy algebry, to jedyne, co nam pozostaje, to wiara w to, że kiedyś nadejdzie taki dzień, że zostanie przez nas zrozumiana.
+Okazuje się na przykład, że połączenia między (niearchimedesowskimi) wartościami bezwzględnymi i algebraiczną strukturą ciała są dosyć poważne, więc czemu nie mielibyśmy się temu przyjrzeć?
 
-Chcemy rozszerzyć naszą teorię i podać jeszcze jeden argument przemawiający za słusznością analogii Hensela (tj. podobieństwa między $\mathbb Q$ i ciałem funkcji wymiernych). Niech zatem $F$ będzie ciałem (skończonym lub nie), $F[t]$ będzie pierścieniem wielomianów o współczynnikach z $F$, zaś $F(t)$ będzie ciałem funkcji wymiernych nad $F$. Zdefiniujmy kilka waluacji.
+Chcemy rozszerzyć naszą teorię i podać jeszcze jeden argument przemawiający za słusznością analogii Hensela (tj. podobieństwa między $\mathbb Q$ i ciałem funkcji wymiernych).
+Niech zatem $F$ będzie ciałem (skończonym lub nie), $F[t]$ będzie pierścieniem wielomianów o współczynnikach z $F$, zaś $F(t)$ będzie ciałem funkcji wymiernych nad $F$.
+Zdefiniujmy kilka waluacji.
 
-Przede wszystkim, dla dowolnego wielomianu $\phi(t) \in F[t]$
+Przede wszystkim, dla dowolnego wielomianu $\phi(t) \in F[t]$ \textbf{to be continued}.
 
 \section{Liczby $p$-adyczne}
-Opanowaliśmy już wystarczająco dużo materiału, by móc ograniczyć nasze ogólne rozważania do specjalnego przypadku, ciała $\mathbb Q$ liczb wymiernych. Znamy już kilka przykładów norm: klasyczną, trywialną i $p$-adyczną wartość bezwzględną. Być może niektórzy zastanawiają się, czy to już wszystkie możliwości. Zanim odpowiemy na to ważne pytanie, będziemy musieli zdefiniować co to znaczy, że dwie normy są \emph{takie same}.
+Opanowaliśmy już wystarczająco dużo materiału, by móc ograniczyć nasze ogólne rozważania do specjalnego przypadku, ciała $\mathbb Q$ liczb wymiernych.
+Znamy już kilka przykładów norm: klasyczną, trywialną i $p$-adyczną wartość bezwzględną.
+Być może niektórzy zastanawiają się, czy to już wszystkie możliwości.
+Zanim odpowiemy na to ważne pytanie, będziemy musieli zdefiniować co to znaczy, że dwie normy są \emph{takie same}.
 
-\begin{dff}Dwie normy $|\cdot|_1$ i $|\cdot|_2$ na ciele $\mathbb K$ nazywamy równoważnymi, jeśli definiuję tę samą topologię na $\mathbb K$. Innymi słowy, zbiór jest otwarty względem jednej z norm wtedy i tylko wtedy, gdy jest otwarty względem drugiej.\end{dff}
+\begin{dff}
+Dwie normy $|\cdot|_1$ i $|\cdot|_2$ na ciele $\mathbb K$ nazywamy równoważnymi, jeśli definiuję tę samą topologię na $\mathbb K$.
+Innymi słowy, zbiór jest otwarty względem jednej z norm wtedy i tylko wtedy, gdy jest otwarty względem drugiej.
+\end{dff}
 
-Łatwiej powiedzieć aniżeli sprawdzić! Lepiej znajdźmy jakieś kryterium, które jest bardziej używalne.
+Łatwiej powiedzieć aniżeli sprawdzić!
+Lepiej znajdźmy jakieś kryterium, które jest bardziej używalne.
 
-\begin{fkt}Niech $|\cdot|_1$ i $|\cdot|_2$ będą normami na ciele $\mathbb K$. Następujące warunki są równoważne:
+\begin{fkt}
+Niech $|\cdot|_1$ i $|\cdot|_2$ będą normami na ciele $\mathbb K$.
+Następujące warunki są równoważne:
 \begin{enumx}
 \item $|\cdot|_1$ i $|\cdot|_2$ są równoważne,
 \item dla każdego $x\in\mathbb K$ mamy $|x|_1 < 1 \iff |x|_2 < 1$,
 \item istnieje takie dodatnie $a \in \mathbb R$, że dla każdego $x\in\mathbb K$ mamy $|x|_1 = |x|_2^a$.
-\end{enumx}\end{fkt}
-\begin{proof}Udowodnimy cykl implikacji: $1\implies2\implies3\implies1$.
+\end{enumx}
+\end{fkt}
 
-\textbf{Pierwsza}. Każdy ciąg zbieżny odnośnie jednej z wartości bezwzględnych musi być zbieżny odnośnie drugiej (bo topologie są równoważne). Łatwo jednak widać, że $\lim_{n\rightarrow \infty} x^n = 0$ odnośnie topologii indukowanej przez wartość bezwzględną $|\cdot|$ wtedy i tylko wtedy, gdy $|x|<1$.
+\begin{proof}
+Udowodnimy cykl implikacji: $1 \implies 2 \implies 3 \implies 1$.
 
-\textbf{Druga}. To najciekawsza część dowodu. Najpierw będziemy musieli znaleźć $a$: ustalimy dowolne $x_0$ i powiemy, że $a$ jest jedyną liczbą, dla której $|x_0|_1 = |x_0|_2^a$. Pokażemy też, że to $a$ jest dobre dla każdego $x_0 \in \mathbb K$, a nie jedynie dla $x_0$. Ustaliliśmy już plan, działajmy!
+\textbf{Pierwsza}. Każdy ciąg zbieżny odnośnie jednej z wartości bezwzględnych musi być zbieżny odnośnie drugiej (bo topologie są równoważne).
+Łatwo jednak widać, że $\lim_{n\rightarrow \infty} x^n = 0$ odnośnie topologii indukowanej przez wartość bezwzględną $|\cdot|$ wtedy i tylko wtedy, gdy $|x|<1$.
 
-Weźmy dowolne $x_0\in\mathbb K\setminus\{0\}$ takie, że $|x_0|_1 < 1$\footnote{Dlaczego jest ważne, by $|x_0|_1 < 1$? Co się stanie, jeżeli takiego $x_0$ nie ma?}. Na mocy założenia wiemy, że $|x_0|_2 < 1$, więc istnieje takie rzeczywiste $a > 0$, że $|x_0|_1 = |x_0|_2^a$. Weźmy teraz dowolne $x\in\mathbb K\setminus\{0\}$. Jeżeli $|x|_1 = |x_0|_1$, to musimy mieć $|x|_2 = |x_0|_2$: w przeciwnym przypadku albo $x/x_0$, albo $x_0/x$ miałoby $|\cdot|_2$ mniejszą niż $1$, wbrew \textbf{2}. W takim razie $|x|_1 = |x|_2^a$ jest prawdą. Jeżeli $|x|_1 = 1$, to (na mocy \textbf{2}. użytego wobec $x$ lub $1/x$) $|x|_2 = 1$, wszystko gra. Zauważmy wreszcie, że równość dla pewnego $x$ implikuje równość dla jego potęg: $|x_0^n|_1 = |x_0^n|_2^a$.
+\textbf{Druga}.
+To najciekawsza część dowodu.
+Najpierw będziemy musieli znaleźć $a$: ustalimy dowolne $x_0$ i powiemy, że $a$ jest jedyną liczbą, dla której $|x_0|_1 = |x_0|_2^a$.
+Pokażemy też, że to $a$ jest dobre dla każdego $x_0 \in \mathbb K$, a nie jedynie dla $x_0$.
+Ustaliliśmy już plan, działajmy!
 
-Teraz możemy założyć, że $|x|_k \neq 1$ i $|x|_k \neq |x_0|_k$ dla $k = 1,2$. Tak jak przed chwilunią, ustalmy takie $b$, że $|x|_1 = |x|_2^b$ -- to oznacza, że $|x^n|_1 = |x^n|_2^b$ dla $n\in\mathbb N$. W szczególności możemy założyć, że $|x|_1 < 1$ (jeśli tak nie jest, to zastąpmy $x$ przez $1/x$), co implikuje $|x|_2 < 1$. Chcemy pokazać, że $a = b$. Ustalmy dwie liczby naturalne, $u$ i $t$. Zlogarytmujemy pierwszą i ostatnią nierówność stronami. \begin{equation*}|x|_1^u < |x_0|_1^t \iff \left|\frac{x^u}{x_0^t}\right|_1 < 1 \iff \left|\frac{x^u}{x_0^t}\right|_2 < 1 \iff |x|_2^u < |x_0|_2^t.\end{equation*}
-\begin{equation*}\frac{u}{t} < \frac{\log |x_0|_1}{\log |x|_1} \iff \frac{u}{t} < \frac{\log |x_0|_2}{\log |x|_2}.\end{equation*}
+Weźmy dowolne $x_0\in\mathbb K\setminus\{0\}$ takie, że $|x_0|_1 < 1$\footnote{Dlaczego jest ważne, by $|x_0|_1 < 1$? Co się stanie, jeżeli takiego $x_0$ nie ma?}.
+Na mocy założenia wiemy, że $|x_0|_2 < 1$, więc istnieje takie rzeczywiste $a > 0$, że $|x_0|_1 = |x_0|_2^a$.
+Weźmy teraz dowolne $x\in\mathbb K\setminus\{0\}$.
+Jeżeli $|x|_1 = |x_0|_1$, to musimy mieć $|x|_2 = |x_0|_2$: w przeciwnym przypadku albo $x/x_0$, albo $x_0/x$ miałoby $|\cdot|_2$ mniejszą niż $1$, wbrew \textbf{2}.
+W takim razie $|x|_1 = |x|_2^a$ jest prawdą.
+Jeżeli $|x|_1 = 1$, to (na mocy \textbf{2}. użytego wobec $x$ lub $1/x$) $|x|_2 = 1$, wszystko gra.
+Zauważmy wreszcie, że równość dla pewnego $x$ implikuje równość dla jego potęg: $|x_0^n|_1 = |x_0^n|_2^a$.
 
-Zbiór ułamków mniejszych niż pierwszy iloraz i zbiór ułamków mniejszych niż drugi iloraz są tym samym zbiorem. Zbiór liczb wymiernych jest gęsty, więc oba ilorazy muszą być równe! $\star$: ustalmy $|x_0|_1 = |x|_2^a$ i $|x|_1 = |x|_2^b$, wtedy pierwszy iloraz będzie równy $a$, zaś drugi będzie równy $b$.
-\begin{equation*}\frac{\log |x_0|_1}{\log |x|_1} = \frac{\log |x_0|_2}{\log |x|_2} \iff \frac{\log |x_0|_1}{\log |x_0|_2} = \frac{\log |x|_1}{\log |x|_2} \overset{\star}{\iff} a = b\end{equation*}
+Teraz możemy założyć, że $|x|_k \neq 1$ i $|x|_k \neq |x_0|_k$ dla $k = 1,2$.
+Tak jak przed chwilunią, ustalmy takie $b$, że $|x|_1 = |x|_2^b$ -- to oznacza, że $|x^n|_1 = |x^n|_2^b$ dla $n\in\mathbb N$.
+W szczególności możemy założyć, że $|x|_1 < 1$ (jeśli tak nie jest, to zastąpmy $x$ przez $1/x$), co implikuje $|x|_2 < 1$.
+Chcemy pokazać, że $a = b$.
+Ustalmy dwie liczby naturalne, $u$ i $t$.
+Zlogarytmujemy pierwszą i ostatnią nierówność stronami.
+\begin{equation*}
+|x|_1^u < |x_0|_1^t \iff
+\left|\frac{x^u}{x_0^t}\right|_1 < 1 \iff
+\left|\frac{x^u}{x_0^t}\right|_2 < 1 \iff
+|x|_2^u < |x_0|_2^t
+\end{equation*}
+
+\begin{equation*}
+\frac{u}{t} < \frac{\log |x_0|_1}{\log |x|_1} \iff
+\frac{u}{t} < \frac{\log |x_0|_2}{\log |x|_2}
+\end{equation*}
+
+Zbiór ułamków mniejszych niż pierwszy iloraz i zbiór ułamków mniejszych niż drugi iloraz są tym samym zbiorem.
+Zbiór liczb wymiernych jest gęsty, więc oba ilorazy muszą być równe!
+$\star$: ustalmy $|x_0|_1 = |x|_2^a$ i $|x|_1 = |x|_2^b$, wtedy pierwszy iloraz będzie równy $a$, zaś drugi będzie równy $b$.
+\begin{equation*}
+\frac{\log |x_0|_1}{\log |x|_1} =
+\frac{\log |x_0|_2}{\log |x|_2} \iff
+\frac{\log |x_0|_1}{\log |x_0|_2} =
+\frac{\log |x|_1}{\log |x|_2} \overset{\star}{\iff}
+a = b
+\end{equation*}
 
 \textbf{Trzecia}. Na mocy założenia mamy $|x-a|_1 < r \Leftrightarrow |x-a|_2^a < r \Leftrightarrow |x-a|_2 < r^{1/a}$,
-czyli każda kula otwarta odnośnie pierwszej wartości bezwzględnej jet otwartą kulą (choć o innym promieniu) odnośnie drugiej wartości bezwzględnej, więc topologie przez nie indukowane są identyczne [dlaczego?], a same wartości bezwzględne są równoważne.\end{proof}
+czyli każda kula otwarta odnośnie pierwszej wartości bezwzględnej jet otwartą kulą (choć o innym promieniu) odnośnie drugiej wartości bezwzględnej.
+Wnioskujemy stąd, że topologie przez nie indukowane są identyczne [dlaczego?], a same wartości bezwzględne są równoważne.
+\end{proof}
 
-Uff! Nadszedł wreszcie czas na jedno z ważniejszych twierdzeń, z dowodem którego przyjdzie nam się zmierzyć. Mówi ono, że udało nam się znaleźć już wszystkie możliwe wartości bezwzględne na $\mathbb Q$!
+Uff! Nadszedł wreszcie czas na jedno z ważniejszych twierdzeń, z dowodem którego przyjdzie nam się zmierzyć.
+Mówi ono, że udało nam się znaleźć już wszystkie możliwe wartości bezwzględne na $\mathbb Q$!
 
-\begin{fkt}[Ostrowski, 1916] Każda nietrywialna norma $|\cdot|$ na $\mathbb Q$ jest równoważna z normą $|\cdot|_p$ dla $p \in \mathbb P \cup \{\infty\}$.\end{fkt}
+\begin{fkt}[Ostrowski, 1916]
+Każda nietrywialna norma $|\cdot|$ na $\mathbb Q$ jest równoważna z normą $|\cdot|_p$ dla $p \in \mathbb P \cup \{\infty\}$.
+\end{fkt}
 
-\textbf{Dowód}. Załóżmy najpierw, że $|\cdot|$ jest archimedesowska. Niech $n_0 \in\mathbb N$ będzie najmniejszą liczbą, dla której $|n_0| > 1$. Możemy wskazać teraz $a\in\mathbb R_+$ taką, że $|n_0| = n_0^a$. Zapiszmy teraz dowolną liczbę $n\in\mathbb N$ w pozycyjnym systemie o podstawie $n_0$: \begin{equation*}n = a_0 + a_1 n_0 + \cdots + a_s n_0^s, \text{ gdzie }0 \le a_i < n_0 \text{ i } a_s \neq 0, \text{ zaś } s = \left\lfloor\frac{\log n}{\log n_0}\right\rfloor, \text{ bo }n_0^s \le n < n_0^{s+1}.\end{equation*}
-Ze względu na wybór $n_0$ mamy $a_i < n$, czyli $|a_1| \le 1 < |n| $. To wystarcza do oszacowania $|n|$ z góry:
+\textbf{Dowód}. Załóżmy najpierw, że $|\cdot|$ jest archimedesowska.
+Niech $n_0 \in\mathbb N$ będzie najmniejszą liczbą, dla której $|n_0| > 1$.
+Możemy wskazać teraz $a\in\mathbb R_+$ taką, że $|n_0| = n_0^a$.
+Zapiszmy teraz dowolną liczbę $n\in\mathbb N$ w pozycyjnym systemie o podstawie $n_0$:
+\begin{equation*}
+n = a_0 + a_1 n_0 + \cdots + a_s n_0^s,
+\text{ gdzie }0 \le a_i < n_0
+\text{ i } a_s \neq 0,
+\text{ zaś } s = \left\lfloor\frac{\log n}{\log n_0}\right\rfloor,
+\text{ bo }n_0^s \le n < n_0^{s+1}.
+\end{equation*}
+Ze względu na wybór $n_0$ mamy $a_i < n$, czyli $|a_1| \le 1 < |n| $.
+To wystarcza do oszacowania $|n|$ z góry:
 \begin{align*}
-|n| = 
-\left|\sum_{k=0}^s a_k n_0^{k}\right| = 
-\sum_{k=0}^s \left|a_k n_0^{k}\right| = 
-\sum_{k=0}^s \left|a_k\right| n_0^{ka} \le
-\sum_{k=0}^s n_0^{ka} = 
-n_0^{sa} \sum_{k=0}^s n_0^{-ka} \le
-n^a \sum_{k=0}^\infty n_0^{-ka} = n^a \cdot \frac{n_0^a}{n_0^a - 1}\end{align*}
-Nieskończona suma jest skończoną stałą, $C$. Pokazaliśmy, że $|n| \le Cn_0^{sa} \le Cn^a$, czas na nieczyste zagranie. Nierówność jest prawdziwa zawsze, więc możemy ustalić dowolnie duże $m$ i zamienić $n$ na $n^m$! Mamy teraz $|n|^m \le Cn^{am}$ (możemy tak napisać, bo $C$ nie zależy od $n$!), pierwiastkując nierówność stronami i przechodząc do granicy ($\lim_{m\to\infty} \sqrt[m]{C} = 1$) pozbędziemy się stałej. A zatem wiemy już, że $| n| \le n^a$.
+     |n|
+   = \left|\sum_{k=0}^s a_k n_0^{k}\right|
+   = \sum_{k=0}^s \left|a_k n_0^{k}\right|
+   = \sum_{k=0}^s \left|a_k\right| n_0^{ka} 
+ \le \sum_{k=0}^s n_0^{ka}
+   = n_0^{sa} \sum_{k=0}^s n_0^{-ka}
+ \le n^a \sum_{k=0}^\infty n_0^{-ka}
+   = n^a \cdot \frac{n_0^a}{n_0^a - 1}
+ \end{align*}
+Nieskończona suma jest skończoną stałą, $C$.
+Pokazaliśmy, że $|n| \le Cn_0^{sa} \le Cn^a$, czas na nieczyste zagranie.
+Nierówność jest prawdziwa zawsze, więc możemy ustalić dowolnie duże $m$ i zamienić $n$ na $n^m$!
+Mamy teraz $|n|^m \le Cn^{am}$ (możemy tak napisać, bo $C$ nie zależy od $n$), pierwiastkując nierówność stronami i przechodząc do granicy ($\lim_{m\to\infty} \sqrt[m]{C} = 1$) pozbędziemy się stałej.
+A zatem wiemy już, że $| n| \le n^a$.
 
 Skorzystamy jeszcze raz z rozwinięcia $n$, by odwrócić tę nierówność.
 \begin{align*}
 |n| & \overset{\star_1}{\ge}
 \left|n_0^{s+1}\right| - \left|n_0^{s+1} - n\right| \overset{\star_2}{\ge}
-n_0^{a(s+1)} - \left(n_0^{s+1} - n\right)^a \\ & \overset{\star_3}{\ge} 
+n_0^{a(s+1)} - \left(n_0^{s+1} - n\right)^a \overset{\star_3}{\ge} 
 n_0^{a(s+1)} - \left(n_0^{s+1} - n_0^s\right)^a \\ & \overset{\star_4}{=}
 n_0^{a(s+1)} \left[1 - \left( 1 - \frac{1}{n_0}\right)^a\right] \overset{\star_5}{=}
 C' n_0^{a(s+1)} \overset{\star_6}{\ge}
@@ -540,50 +684,122 @@ Przekształcenia, których użyliśmy, nie są takie oczywiste, więc przyjrzyjm
 \item $\star_6$: ponownie korzystamy z rozwinięcia, by przekonać się, że $n_0^{s+1} > n$.
 \end{itemx}
 
-Korzystamy z tej samej sztuczki, by pozbyć się stałej $C'$. Połączmy oba oszacowania: $|n| = n^a$. Norma jest multiplkatywna, więc $|x| = |x|_\infty^a$ dla każdego $x\in\mathbb Q$ (norma równoważna klasycznej wartości bezwzględnej)
+Korzystamy z tej samej sztuczki, by pozbyć się stałej $C'$. 
+Połączmy oba oszacowania: $|n| = n^a$.
+Norma jest multiplkatywna, więc $|x| = |x|_\infty^a$ dla każdego $x\in\mathbb Q$ (norma równoważna klasycznej wartości bezwzględnej)
 
-Rozpatrzmy teraz drugi przypadek, gdy $|\cdot|$ jest niearchimedesowska. Niech $n_0$ będzie najmniejszą liczbą, która spełnia $|n| \le 1$ (norma ma być nietrywialna!). Okazuje się, że $n_0$ musi być liczbą pierwszą -- jeśli bowiem $n_0 = n_1 \cdot n_2$ i $1 < n_1, n_2 < n_0$, to $|n_1| = |n_2| = 1$, czyli $1 > |n_0| = |n_1| \cdot |n_2| = 1$, sprzeczność. Niech $p = n_0$. Twierdzimy, że $|n| = 1$, jeśli $n$ nie jest podzielne przez $p$. Jeżeli $p\nmid n$, to $n = pr+s$, gdzie $0 < s < p$. Wiemy, że $|s| = 1$ (ze względu na wybór $p$). Norma jest niearchimedesowska, więc $|r| \le 1$, czyli $|pr| < 1$. Wszystkie trójkąty są równoramienne, więc $|n| = 1$. Wreszcie, dla dowolnego $n\in\mathbb Z$ możemy napisać, że $n = p^vn_0$, gdzie $p\nmid n_0$. Korzystając z definicji normy: $|n| = |p|^v |n_0| = |p|^v = (1/|p|)^{-v}$, a to oznacza, że norma jest równoważna z $p$-adyczną, bo $|p| < 1$.
+Rozpatrzmy teraz drugi przypadek, gdy $|\cdot|$ jest niearchimedesowska.
+Niech $n_0$ będzie najmniejszą liczbą, która spełnia $|n| \le 1$ (norma ma być nietrywialna!).
+Okazuje się, że $n_0$ musi być liczbą pierwszą -- jeśli bowiem $n_0 = n_1 \cdot n_2$ i $1 < n_1, n_2 < n_0$, to $|n_1| = |n_2| = 1$, czyli $1 > |n_0| = |n_1| \cdot |n_2| = 1$, sprzeczność.
+Niech $p = n_0$.
+Twierdzimy, że $|n| = 1$, jeśli $n$ nie jest podzielne przez $p$.
+Jeżeli $p\nmid n$, to $n = pr+s$, gdzie $0 < s < p$.
+Wiemy, że $|s| = 1$ (ze względu na wybór $p$).
+Norma jest niearchimedesowska, więc $|r| \le 1$, czyli $|pr| < 1$.
+Wszystkie trójkąty są równoramienne, więc $|n| = 1$. 
+Wreszcie, dla dowolnego $n\in\mathbb Z$ możemy napisać, że $n = p^vn_0$, gdzie $p\nmid n_0$.
+Korzystając z definicji normy: $|n| = |p|^v |n_0| = |p|^v = (1/|p|)^{-v}$, a to oznacza, że norma jest równoważna z $p$-adyczną, bo $|p| < 1$.
 
-\begin{prbh}W naszym dowodzie jest pewna luka -- gdybyśmy wiedzieli, że $n_0 = 2$, to wszystko byłoby w porządku. Niestety, $n_0$ może okazać się być czymś dużo większym. Jeżeli $n < n_0$, to $s = 0$, czyli rozwinięciem $n$ w pozycyjnym systemie o podstawie $n_0$ to po prostu $n$. Co teraz?\end{prbh}
-\textbf{Product Formula}. \textbf{$Q$ nie jest zupełne}. \textbf{Ciągi Cauchy'ego}.
-%\end{multicols}
+\begin{prbh}
+W naszym dowodzie jest pewna luka -- gdybyśmy wiedzieli, że $n_0 = 2$, to wszystko byłoby w porządku.
+Niestety, $n_0$ może okazać się być czymś dużo większym. Jeżeli $n < n_0$, to $s = 0$, czyli rozwinięciem $n$ w pozycyjnym systemie o podstawie $n_0$ to po prostu $n$.
+Co teraz?
+\end{prbh}
+
+\textbf{Product Formula}.
+
+\textbf{$Q$ nie jest zupełne}.
+
+\textbf{Ciągi Cauchy'ego}.
 
 % PROBLEM 43
 
-
 \newpage
-%\begin{center}\textbf{\Huge Wskazówki i rozwiązania problemów}\end{center}
 \section*{Wskazówki i rozwiązania}
 %\begin{multicols}{2}
 
-\begin{sol}Kolejno: $3$, $7$, $0$, $4$, $2$, $0$, $0$, $1$.\end{sol}
-\begin{sol}Sugestywna wskazówka: jeśli $\alpha$ to potęga, w jakiej wchodzi $p$ w rozkładzie na czynniki pierwsze $n!$, to\begin{equation*}\alpha = \sum_{i=1}^{\infty} \left[\frac{n}{p^i}\right]\end{equation*}\end{sol}
-\begin{sol}Patrz poprzednie ćwiczenie.\end{sol}
-\begin{sol}Co możesz powiedzieć o waluacji $v_p(x)$ dla dowolnego $p\in\mathbb P$?\end{sol}
-\begin{sol}Wystarczy policzyć waluacje i skorzystać z definicji: $1/7$, $1/7$, $1$, $343$.\end{sol}
-\begin{sol}Zero!\end{sol}
-\begin{sol}Ustalenie $c=p$ pozwala zapisać Product Formula w ładniejszej postaci.\end{sol}
+\begin{sol}
+Kolejno: $3$, $7$, $0$, $4$, $2$, $0$, $0$, $1$.
+\end{sol}
 
-\begin{sol}Dodawanie -- potrzebna będzie nierówność trójkąta:
-$d(x+y, x_0 + y_0) = |(x+y) -(x_0+y_0) | =\\= |(x-x_0)+ (y-y_0)| \le |x-x_0| + |y-y_0|$
-Mnożenie -- odrobina spostrzegawczości może być przydatna, bowiem $xy - x_0y_0 = x(y-y_0) + y_0(x-x_0)$. Wreszcie odwracanie, tutaj można użyć tożsamości $1/x - 1/{x_0} = {(x_0-x)}/{xx_0}$.\end{sol}
+\begin{sol}
+Sugestywna wskazówka: jeśli $\alpha$ to potęga, w jakiej wchodzi $p$ w rozkładzie na czynniki pierwsze $n!$, to
+\begin{equation*}
+\alpha = \sum_{i=1}^{\infty} \left[\frac{n}{p^i}\right]
+\end{equation*}
+\end{sol}
 
-\begin{sol}$1$, $5$, $5$. \end{sol}
+\begin{sol}
+Patrz poprzednie ćwiczenie.
+\end{sol}
 
-\begin{sol}Dla $r = 0$ nasza kula degeneruje się do punktu, który nie jest zbiorem otwartym (chyba, że wartość bezwzględna była trywialna). Dla porównania, otwarte kule o zerowym promeniu są zbiorami pustymi, a zatem są otwarte i domknięte niezależnie od okoliczności.\end{sol}
+\begin{sol}
+Co możesz powiedzieć o waluacji $v_p(x)$ dla dowolnego $p\in\mathbb P$?
+\end{sol}
 
-\begin{sol}Trzeba sprawdzić rozłączność i domkniętość!\end{sol}
-\begin{sol}Wskazówka: $1/5 < 1 < 5$.\end{sol}
+\begin{sol}
+Wystarczy policzyć waluacje i skorzystać z definicji: $1/7$, $1/7$, $1$, $343$.
+\end{sol}
 
-\begin{sol}Popatrz co się dzieje dla $n=1$, $1<n<n_0$, a następnie zauważ, że $n^m$ może stać się dowolnie duże.\end{sol}
+\begin{sol}
+Zero!
+\end{sol}
 
+\begin{sol}
+Ustalenie $c=p$ pozwala zapisać Product Formula w ładniejszej postaci.
+\end{sol}
 
+\begin{sol} Korzystamy kolejno z  nierówności trójkąta i spostrzegawczości.
+\begin{align*}
+\text{dodawanie: } & d(x+y, x_0 + y_0) = |(x+y) -(x_0+y_0) | = |(x-x_0)+ (y-y_0)| \le |x-x_0| + |y-y_0|\\
+\text{mnożenie: } & xy - x_0y_0 = x(y-y_0) + y_0(x-x_0)\\
+\text{odwracanie: } & 1/x - 1/{x_0} = {(x_0-x)}/{xx_0}
+\end{align*}
+\end{sol}
 
-%\begin{center}\textbf{\Huge Alternatywne dowody}\end{center}
+\begin{sol}
+$1$, $5$, $5$.
+\end{sol}
+
+\begin{sol}
+Dla $r = 0$ nasza kula degeneruje się do punktu, który nie jest zbiorem otwartym (chyba, że wartość bezwzględna była trywialna).
+Dla porównania, otwarte kule o zerowym promeniu są zbiorami pustymi, a zatem są otwarte i domknięte niezależnie od okoliczności.
+\end{sol}
+
+\begin{sol}
+Trzeba sprawdzić rozłączność i domkniętość!
+\end{sol}
+
+\begin{sol}
+Wskazówka: $1/5 < 1 < 5$.
+\end{sol}
+
+\begin{sol}
+Popatrz co się dzieje dla $n=1$, $1<n<n_0$, a następnie zauważ, że $n^m$ może stać się dowolnie duże.
+\end{sol}
+
 \section*{Alternatywne dowody}
-\textbf{Dowód tw. Ostrowskiego, część druga}. Rozpatrzmy teraz drugi przypadek, gdy $|\cdot|$ jest niearchimedesowska. Niech $n_0$ będzie najmniejszą liczbą, która spełnia $|n| \le 1$ (norma ma być nietrywialna!). Okazuje się, że $n_0$ musi być liczbą pierwszą -- jeśli bowiem $n_0 = n_1 \cdot n_2$ i $1 < n_1, n_2 < n_0$, to $|n_1| = |n_2| = 1$, czyli $1 > |n_0| = |n_1| \cdot |n_2| = 1$, sprzeczność. Niech $p = n_0$. Twierdzimy, że $|q| = 1$, jeśli $q$ jest liczbą pierwszą różną od $p$. Najłatwiej dowodzić tego nie wprost: jeśli $|q| < 1$, to dla pewnego dużego $N$ mamy $|q^N| = |q|^N \le 1/2$, dla pewnego dużego $M$ mamy $|p^M| < 1/2$. Możemy znaleźć dwie liczby całkowite $a, b$ takie, że $bp^M + aq^N = 1$, gdyż $p^M$ i $q^N$ są względnie pierwsze. Ale
-\begin{equation*}1 =|1| \le |bp^M| + |aq^N| = |b| \cdot |p^M| + |a| \cdot |q^N|\le |p^M| + |q^N| < \frac{1}{2} + \frac{1}{2} = 1\end{equation*}
-To już prawie koniec dowodu: każda liczba całkowita $n$ może zostać zapisana jako iloczyn liczb pierwszych $n = p_1^{\alpha_1} \cdot p_2^{\alpha_2} \cdot \ldots \cdot p_r^{\alpha_r} $. Z tego wynika, że $|a| = |p_1|^{\alpha_1} \cdot |p_2|^{\alpha_2} \cdot \ldots \cdot |p_r|^{\alpha_r}$. Jedyne $|p_i|$ różne od jedynki to $|p|$, wtedy $\alpha_i = v_p(n)$ i $|n| = |p|^{v_p(n)}$. Korzystamy z multiplikatywności, by rozszerzyć rozumowanie na $\mathbb Q$: ta norma jest równoważna z $|\cdot|_p$.
+\textbf{Dowód tw. Ostrowskiego, część druga}.
+Rozpatrzmy teraz drugi przypadek, gdy $|\cdot|$ jest niearchimedesowska.
+Niech $n_0$ będzie najmniejszą liczbą, która spełnia $|n| \le 1$ (norma ma być nietrywialna!).
+Okazuje się, że $n_0$ musi być liczbą pierwszą -- jeśli bowiem $n_0 = n_1 \cdot n_2$ i $1 < n_1, n_2 < n_0$, to $|n_1| = |n_2| = 1$, czyli $1 > |n_0| = |n_1| \cdot |n_2| = 1$, sprzeczność.
+Niech $p = n_0$.
+Twierdzimy, że $|q| = 1$, jeśli $q$ jest liczbą pierwszą różną od $p$.
+Najłatwiej dowodzić tego nie wprost: jeśli $|q| < 1$, to dla pewnego dużego $N$ mamy $|q^N| = |q|^N \le 1/2$, dla pewnego dużego $M$ mamy $|p^M| < 1/2$.
+Możemy znaleźć dwie liczby całkowite $a, b$ takie, że $bp^M + aq^N = 1$, gdyż $p^M$ i $q^N$ są względnie pierwsze.
+Ale
+\begin{equation*}
+1  = |1|
+ \le |bp^M| + |aq^N|
+   = |b| \cdot |p^M| + |a| \cdot |q^N|
+ \le |p^M| + |q^N|
+   < \frac{1}{2} + \frac{1}{2}
+   = 1
+\end{equation*}
+To już prawie koniec dowodu: każda liczba całkowita $n$ może zostać zapisana jako iloczyn liczb pierwszych $n = p_1^{\alpha_1} \cdot p_2^{\alpha_2} \cdot \ldots \cdot p_r^{\alpha_r} $.
+Z tego wynika, że $|a| = |p_1|^{\alpha_1} \cdot |p_2|^{\alpha_2} \cdot \ldots \cdot |p_r|^{\alpha_r}$.
+Jedyne $|p_i|$ różne od jedynki to $|p|$, wtedy $\alpha_i = v_p(n)$ i $|n| = |p|^{v_p(n)}$.
+Korzystamy z multiplikatywności, by rozszerzyć rozumowanie na $\mathbb Q$: ta norma jest równoważna z $|\cdot|_p$.
 \newpage
 
 \end{document}
