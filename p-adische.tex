@@ -167,126 +167,236 @@ Trywialna norma jest jedyną, jaką możemy wprowadzić na skończonym ciele $\m
 
 \begin{proof}
 Posłużymy się \textbf{twierdzeniem Lagrange'a}: w grupie skończonej $G$ rząd dowolnej podgrupy jest dzielnikiem rzędu $G$.
-Niech $|\cdot|$ będzie normą na $\mathbb K$, wtedy z definicji $|0| = 0$. Równość $1 = 1 \cdot 1$ wymusza $|1| = |1| \cdot |1|$. Jedynym dodatnim rozwiązaniem jest $|1| = 1$. $\mathbb K$ jest skończonym ciałem o mocy $q$, więc dla dowolnego niezerowego $x\in\mathbb K$ (na mocy tw. Lagrange'a) mamy $|x|^{q-1} = 1$. To sprawia, że $|x| = 1$, zaś norma jest trywialna. \end{proof}
+Niech $|\cdot|$ będzie normą na $\mathbb K$, wtedy z definicji $|0| = 0$.
+Równość $1 = 1 \cdot 1$ wymusza $|1| = |1| \cdot |1|$.
+Jedynym dodatnim rozwiązaniem jest $|1| = 1$.
+$\mathbb K$ jest skończonym ciałem o mocy $q$, więc dla dowolnego niezerowego $x\in\mathbb K$ (na mocy tw. Lagrange'a) mamy $|x|^{q-1} = 1$.
+To sprawia, że $|x| = 1$, zaś norma jest trywialna.
+\end{proof}
  
- Zaraz zdefiniujemy coś, co będzie obiektem naszego zainteresowania przez prawie cały czas. Niech $\mathbb K$ będzie zbiorem liczb wymiernych $\mathbb Q$, zaś $p\in\mathbb Z$ dowolną liczbą pierwszą. Chcielibyśmy wiedzieć, jak bardzo $n\in\mathbb Z$ jest podzielna przez $p$. Formalnie:
+Zaraz zdefiniujemy coś, co będzie obiektem naszego zainteresowania przez prawie cały czas.
+Niech $\mathbb K$ będzie zbiorem liczb wymiernych $\mathbb Q$, zaś $p\in\mathbb Z$ dowolną liczbą pierwszą.
+Chcielibyśmy wiedzieć, jak bardzo $n\in\mathbb Z$ jest podzielna przez $p$.
+Formalnie:
 
-\begin{dff}Niech $p$ będzie liczbą pierwszą. $p$-adyczna waluacja na $\mathbb Z$ to funkcja $v_p:\mathbb Z\setminus\{0\} \rightarrow \mathbb R$ zdefiniowana tak: dla $n\in\mathbb Z\setminus\{0\}$ niech $v_p(n)$ będzie jedyną dodatnią liczbą całkowitą spełniającą \begin{equation*}n = p^{v_p(n)} \cdot n_0, \quad \text {przy czym} \quad p\nmid n_0.\end{equation*} Rozszerzamy $v_p$ na ciało liczb wymiernych: jeśli $x = a/b \in\mathbb Q$, to $v_p(x) = v_p(a) - v_p(b)$.\end{dff}
+\begin{dff}
+Niech $p$ będzie liczbą pierwszą.
+$p$-adyczna waluacja na $\mathbb Z$ to funkcja $v_p:\mathbb Z\setminus\{0\} \rightarrow \mathbb R$ zdefiniowana tak: dla $n\in\mathbb Z\setminus\{0\}$ niech $v_p(n)$ będzie jedyną dodatnią liczbą całkowitą spełniającą
+\begin{equation*}
+n = p^{v_p(n)} \cdot n_0, \quad \text {przy czym} \quad p\nmid n_0.
+\end{equation*}
+Rozszerzamy $v_p$ na ciało liczb wymiernych: jeśli $x = a/b \in\mathbb Q$, to $v_p(x) = v_p(a) - v_p(b)$.\end{dff}
 
 Zwyczajowo przyjmujemy $v_p(0) = +\infty$, co możemy uzasadnić następująco: gdy podzielimy $0$ przez $p$, to dostaniemy $0$, które możemy znów podzielić przez $p$ -- proces powtarza się dowolnie wiele razy.
 
-\begin{fkt}Jeśli $x\in\mathbb Q$, to wartość $v_p(x)$ nie zależy od wyboru reprezentanta $x$, ilorazu dwóch liczb całkowitych.\end{fkt}
+\begin{fkt}
+Jeśli $x\in\mathbb Q$, to wartość $v_p(x)$ nie zależy od wyboru reprezentanta $x$, ilorazu dwóch liczb całkowitych.
+\end{fkt}
 
-\begin{proof}Jeśli $a/b = c/d$, to $ad = bc$, a zatem $v_p(ad) = v_p(bc)$. Z ZTA wiemy, że $v_p(ad) = v_p(a) + v_p(d)$ i $v_p(bc)= v_p(b) + v_p(c)$, czyli $v_p(a) + v_p(d) = v_p(b) + v_p(c)$. Teraz łatwo już widać, że \begin{equation*}v_p\left(\frac{a}{b}\right) = v_p(a)-v_p(b) = v_p(c) - v_p(d) = v_p\left(\frac{c}{d}\right)\qedhere\end{equation*}\end{proof}
+\begin{proof}
+Jeśli $a/b = c/d$, to $ad = bc$, a zatem $v_p(ad) = v_p(bc)$. Z Zasadniczego twierdzenia arytmetyki wiemy, że $v_p(ad) = v_p(a) + v_p(d)$ i $v_p(bc)= v_p(b) + v_p(c)$, czyli $v_p(a) + v_p(d) = v_p(b) + v_p(c)$. Teraz łatwo już widać, że 
+\begin{equation*}
+v_p\left(\frac{a}{b}\right)
+ = v_p(a)-v_p(b)
+ = v_p(c) - v_p(d)
+ = v_p\left(\frac{c}{d}\right)\qedhere
+\end{equation*}
+\end{proof}
 
 %%% VP: 5 400, 7 902, 2 621, 3 123/48, 5 180*3
 
 \begin{fkt}
-Dla dowolnych $x,y \in \mathbb Q$ waluacja $p$-adyczna spełnia dwie podstawowe zależności, mianowicie
-\begin{equation*}v_p(xy) = v_p(x) + v_p(y), \\ v_p(x+y) \ge \min(v_p(x), v_p(y)).\end{equation*}
-
+Dla dowolnych $x,y \in \mathbb Q$ waluacja $p$-adyczna spełnia dwie zależności, $v_p(xy) = v_p(x) + v_p(y)$ oraz $v_p(x+y) \ge \min(v_p(x), v_p(y))$.
 \end{fkt}
-\begin{proof}Rozpatrzmy najpierw przypadek, gdy $x,y$ są liczbami całkowitymi. Wtedy $x = p^ax_0$ i $y=p^by_0$, gdzie $p\nmid x_0y_0$, bez straty ogólności mamy $a\le b$. Wtedy $xy=p^{a+b}x_0y_0$ (co dowodzi pierwszego faktu), dla dowodu drugiego: $x+y=p^ax_0+p^by_0 = p^a\left(x_0+p^{b-a}y_0\right)$. Ustalmy teraz $x=a/b$ i $y=c/d$, przy czym $x,y\in\mathbb Q$.
+
+\begin{proof}
+Rozpatrzmy najpierw przypadek, gdy $x,y$ są liczbami całkowitymi. 
+Wtedy $x = p^ax_0$ i $y=p^by_0$, gdzie $p\nmid x_0y_0$, bez straty ogólności mamy $a\le b$.
+Wtedy $xy=p^{a+b}x_0y_0$ (co dowodzi pierwszego faktu), dla dowodu drugiego: $x+y=p^ax_0+p^by_0 = p^a\left(x_0+p^{b-a}y_0\right)$. 
+Ustalmy teraz $x=a/b$ i $y=c/d$, przy czym $x,y\in\mathbb Q$.
 \begin{align*}
-v_p\left(\frac{ac}{bd}\right) & = v_p\left(ac\right) - v_p\left(bd\right) = v_p\left(a\right) +v_p\left(c\right) - v_p\left(b\right) - v_p\left(d\right) = v_p\left(\frac{a}{b}\right) +v_p\left(\frac{c}{d}\right) \\
-v_p\left(\frac{ad+bc}{bd}\right) & \ge \min(v_p(ad), v_p(bc)) - v_p(bd) \\ & = \min(v_p(a) + v_p(d), v_p(b) + v_p(c)) - v_p(b) -v_p(d) \notag\\
-& = \min(v_p(a) - v_p(b), v_p(c) - v_p(d)) = \min(v_p(x), v_p(y)) \qedhere
+v_p\left(\frac{ac}{bd}\right) &
+ = v_p\left(ac\right) - v_p\left(bd\right)
+ = v_p\left(a\right) + v_p\left(c\right) - v_p\left(b\right) - v_p\left(d\right)
+ = v_p\left(\frac{a}{b}\right) + v_p\left(\frac{c}{d}\right) \\
+v_p\left(\frac{ad+bc}{bd}\right) &
+\ge \min(v_p(ad), v_p(bc)) - v_p(bd)
+  = \min(v_p(a) + v_p(d), v_p(b) + v_p(c)) - v_p(b) -v_p(d) \\ &
+  = \min(v_p(a) - v_p(b), v_p(c) - v_p(d))
+  = \min(v_p(x), v_p(y)) \qedhere
 \end{align*}
 \end{proof}
 
 Chcemy lepiej rozumieć, jak działa waluacja, dlatego przeliczymy kilka przykładów, zyskamy też wprawę rachunkową. 
 
-\begin{prb}Oblicz: $v_{3}(54)$, $v_{2}(128/7)$, $v_{3}(10^9)$, $v_3(9!)$, $v_5(400)$, $v_7(902)$, $v_2(621)$, $v_3(123/48)$, $v_5(180/3)$.\end{prb}
+\begin{prb}
+Oblicz: $v_{3}(54)$, $v_{2}(128/7)$, $v_{3}(10^9)$, $v_3(9!)$, $v_5(400)$, $v_7(902)$, $v_2(621)$, $v_3(123/48)$, $v_5(180/3)$.
+\end{prb}
 
-\begin{prb}$v_p((p^n)!) = \sum_{k=0}^{n-1}p^k$.\end{prb}
+\begin{prb}
+$v_p((p^n)!) = \sum_{k=0}^{n-1}p^k$.
+\end{prb}
 
-\begin{prb}Jeśli $0\le a\le p-1$, to $v_p((ap^n)!) = a\sum_{k=0}^{n-1}p^k$.\end{prb}
+\begin{prb}
+Jeśli $0\le a\le p-1$, to $v_p((ap^n)!) = a\sum_{k=0}^{n-1}p^k$.
+\end{prb}
 
-\begin{prb}Jeśli $x\in \mathbb Q$ i $(\forall p\in\mathbb P)(|x|_p \le 1)$, to $x\in\mathbb Z$.\end{prb}
+\begin{prb}
+Jeśli $x\in \mathbb Q$ i $(\forall p\in\mathbb P)(|x|_p \le 1)$, to $x\in\mathbb Z$.
+\end{prb}
 
-Czas na magiczną sztuczkę. Popatrzmy na fakt, którego prawdziwość właśnie została pokazana oraz na definicję normy. Są one bardzo podobne: suma odpowiada iloczynowi (tak, jakbyśmy logarytmowali), dodatkowo nierówność zachodzi w drugą stronę. Możemy to naprawić poprzez ponowną zmianę znaku i obłożenie sumy funkcją wykładniczą. W ten sposób uzyskujemy krytyczną definicję:
+Czas na magiczną sztuczkę.
+Popatrzmy na fakt, którego prawdziwość właśnie została pokazana oraz na definicję normy.
+Są one bardzo podobne: suma odpowiada iloczynowi (tak, jakbyśmy logarytmowali), dodatkowo nierówność zachodzi w drugą stronę. 
+Możemy to naprawić poprzez ponowną zmianę znaku i obłożenie sumy funkcją wykładniczą.
+W ten sposób uzyskujemy krytyczną definicję:
 
-\begin{dff}Dla dowolnego $x\in\mathbb Q$ definiujemy $p$-adyczną wartość bezwzględną $x$ poprzez zależność $|x|_p = p^{-v_p(x)}$, jeśli $x\neq 0$ i $|0|_p = 0$. \end{dff}
+\begin{dff}
+Dla dowolnego $x\in\mathbb Q$ definiujemy $p$-adyczną wartość bezwzględną $x$ poprzez zależność $|x|_p = p^{-v_p(x)}$, jeśli $x\neq 0$ i $|0|_p = 0$.
+\end{dff}
 
-Definicja $|0|_p$ odpowiada naszej umowie, że $v_p(0) = + \infty$, jeżeli spróbujemy zinterpretować wyrażenie $p^{-\infty}$ w jedyny sensowny sposób. Aby upewnić się, że to rzeczywiście jest wartość bezwzględna, musimy sprawdzić, czy założenia definicji są spełnione. Wszystko wynika jednak z pierwszego faktu.
+Definicja $|0|_p$ odpowiada naszej umowie, że $v_p(0) = + \infty$, jeżeli spróbujemy zinterpretować wyrażenie $p^{-\infty}$ w jedyny sensowny sposób.
+Aby upewnić się, że to rzeczywiście jest wartość bezwzględna, musimy sprawdzić, czy założenia definicji są spełnione.
+Wszystko wynika jednak z trzeciego faktu.
+Spróbujmy pojąć to, co robi $p$-adyczna wartość bezwzględna. 
+Jeżeli liczba $n$ jest bardzo podzielna przez $p$, to waluacja $v_p(n)$ będzie duża, a sama norma $|n|_p$ -- mała.
+Odrobina liczenia jeszcze nikomu nie zaszkodziła, a zatem…
 
-Spróbujmy pojąć to, co robi $p$-adyczna wartość bezwzględna. Jeżeli liczba $n$ jest bardzo podzielna przez $p$, to waluacja $v_p(n)$ będzie duża, a sama norma $|n|_p$ -- mała. Odrobina liczenia jeszcze nikomu nie zaszkodziła, a zatem…
-
-\begin{prb}Niech $\mathbb K = \mathbb Q$, $p=7$, zaś $|\cdot| = |\cdot|_7$ będzie $7$-adyczną normą. Oblicz $|35|$, $|56/12|$, $|177553|$, $|3/686|$.\end{prb}
+\begin{prb}
+Niech $\mathbb K = \mathbb Q$, $p=7$, zaś $|\cdot| = |\cdot|_7$ będzie $7$-adyczną normą.
+Oblicz $|35|$, $|56/12|$, $|177553|$, $|3/686|$.
+\end{prb}
 
 %%% PROBLEM 28 / GOUVEA
 %%% PROBLEM 29 / GOUVEA
 % Strona 35…
 
-\begin{prb}Oblicz granicę $\lim_{n\to\infty} |p^n|_p$.\end{prb}
+\begin{prb}
+Oblicz granicę $\lim_{n\to\infty} |p^n|_p$.
+\end{prb}
 
 Wniosek: duże potęgi $p$ są małe (!), jeżeli liczymy ich $p$-adyczną wartość bezwzględną.
 
-\begin{prb}Dla dowolnego $c\in\mathbb R$, $c>1$, równanie $|x| = c^{-v_p(x)}$ definiuje niearchimedesowską normę na $\mathbb Q$. Dlaczego upieramy się, by przyjąć $c=p$?\end{prb}
+\begin{prb}
+Dla dowolnego $c\in\mathbb R$, $c>1$, równanie $|x| = c^{-v_p(x)}$ definiuje niearchimedesowską normę na $\mathbb Q$.
+Dlaczego upieramy się, by przyjąć $c=p$?
+\end{prb}
 
-\begin{fkt}Dla każdej normy $|\cdot|$ i każdego ciała $\mathbb K$ prawdą jest, że:
+\begin{fkt}
+Dla każdej normy $|\cdot|$ i każdego ciała $\mathbb K$ prawdą jest, że:
 \begin{enumx}
 \item $|1| = 1$
-\item Jeśli $x\in\mathbb K$ i $|x^n| = 1$, to $|x| = 1$
+\item jeśli $x\in\mathbb K$ i $|x^n| = 1$, to $|x| = 1$
 \item $|-1| = 1$
-\item Dla dowolnego $x\in\mathbb K$, $|-x| = |x|$
+\item dla dowolnego $x\in\mathbb K$, $|-x| = |x|$
 \end{enumx}
 \end{fkt}
 
-Pokażemy teraz pierwsze poważne twierdzenie: warunek konieczny i dostateczny na to, by norma była niearchimedesowska. Zauważmy, że dla każdego ciała $\mathbb K$ mamy odwzorowanie $\mathbb Z \rightarrow \mathbb K$ (inclusion map):
+Pokażemy teraz pierwsze poważne twierdzenie: wskażemy warunek konieczny i dostateczny na to, by norma była niearchimedesowska.
+Zauważmy, że dla każdego ciała $\mathbb K$ mamy odwzorowanie $\mathbb Z \rightarrow \mathbb K$ (inclusion map):
 \begin{equation*}
 n \mapsto
 \begin{cases}
 {1 + 1 + \dots + 1 + 1} & n\text{ jedynek, jeśli } n > 0 \\
 - ({1 + 1 + \dots + 1 + 1}) & -n \text{ jedynek, jeśli } n < 0 \\
- 0  & \text{jeśli } n = 0 \\
- \end{cases}
+ 0  & \text{jeśli } n = 0 
+\end{cases}
 \end{equation*}
+Dla przykładu: jeśli $\mathbb Q \subset \mathbb K$, to mamy do czynienia ze zwykłym włożeniem $\mathbb Z$ w $\mathbb Q$.
+Jeśli $\mathbb K$ jest skończonym ciałem, to obrazem odwzorowania będzie podciało $\mathbb K$, które ma pierwszą liczbę elementów.
 
-Dla przykładu: jeśli $\mathbb Q \subset \mathbb K$, to mamy do czynienia ze zwykłym włożeniem $\mathbb Z$ w $\mathbb Q$, jeśli $\mathbb K$ jest skończonym ciałem, to obrazem odwzorowania będzie podciało $\mathbb K$, które ma pierwszą liczbę elementów.
+\begin{fkt}
+Niech $A\subset \mathbb K$ będzie obrazem $\mathbb Z$ w $\mathbb K$.
+Norma $|\cdot |$ na $\mathbb K$ jest niearchimedesowska wtedy i tylko wtedy, gdy dla każdego $a\in A$ zachodzi $|a| \le 1$.
+W szczególności, wartość bezwzględna na $\mathbb Q$ jest niearchimedesowska wtedy i tylko wtedy, gdy $|n|\le 1$ dla każdego $n\in \mathbb Z$.
+\end{fkt}
 
-\begin{fkt}Niech $A\subset \mathbb K$ będzie obrazem $\mathbb Z$ w $\mathbb K$. Norma $|\cdot |$ na $\mathbb K$ jest niearchimedesowska wtedy i tylko wtedy, gdy dla każdego $a\in A$ zachodzi $|a| \le 1$. W szczególności, wartość bezwzględna na $\mathbb Q$ jest niearchimedesowska wtedy i tylko wtedy, gdy $|n|\le 1$ dla każdego $n\in \mathbb Z$.\end{fkt}
-
-\begin{proof}Implikacja w prawo: jeśli $|\cdot|$ jest niearchimedesowska, to $|a\pm 1| \le \max(|a|, 1)$. Na mocy indukcji $(\forall a \in A)(|a| \le 1).$ Dowód twierdzenia odwrotnego wymaga małego hokus-pokus: musimy udowodnić, że dla dowolnych $x,y\in\mathbb K$ jest $|x+y|\le \max(|x|,|y|)$. Jest to oczywiste dla $y=0$. Dla $y\neq 0$ dowodzimy równoważnego warunku: $|x/y+1| \le \max (|x/y|,1)$. Niech $m\in \mathbb N$ oraz $t = x/y$, mamy wtedy
-\begin{align*}|t+1|^m & = \left| \sum_{k=0}^m {m \choose k} t^k\right| \le \sum_{k=0}^m \left|{m \choose k}\right|\left| t^k\right| \le \sum_{k=0}^m \left| t^k\right| = \sum_{k=0}^m \left| t\right|^k \le (m+1) \max(1, |t|^m)\end{align*}
+\begin{proof}
+Implikacja w prawo: jeśli $|\cdot|$ jest niearchimedesowska, to $|a\pm 1| \le \max(|a|, 1)$.
+Na mocy indukcji $(\forall a \in A)(|a| \le 1)$.
+Dowód twierdzenia odwrotnego wymaga małego hokus-pokus: musimy udowodnić, że dla dowolnych $x,y\in\mathbb K$ jest $|x+y|\le \max(|x|,|y|)$.
+Jest to oczywiste dla $y=0$.
+Dla $y\neq 0$ dowodzimy równoważnego warunku: $|x/y+1| \le \max (|x/y|,1)$.
+Niech $m\in \mathbb N$ oraz $t = x/y$, mamy wtedy
+\begin{align*}
+|t+1|^m &
+   = \left| \sum_{k=0}^m {m \choose k} t^k\right|
+ \le \sum_{k=0}^m \left|{m \choose k}\right|\left| t^k\right|
+ \le \sum_{k=0}^m \left| t^k\right|
+   = \sum_{k=0}^m \left| t\right|^k
+ \le (m+1) \max(1, |t|^m)
+\end{align*}
 
 Pierwiastkujemy nierówność stronami: $|t+1| \le \sqrt[m]{m+1} \max(1,|t|)$ i liczymy granicę przy $m$ dążącym do nieskończoności.
 \end{proof}
 
-To tłumaczy nam, jaka jest różnica między archimedesowskimi oraz niearchimedesowskimi wartościami bezwzględnymi. \emph{Zasada Archimedesa} mówi, że mając dane $x,y\in \mathbb K$, $x\neq 0$, zawsze znajdziemy takie $n\in\mathbb N$, że $|nx| > |y|$. Jest to prawda, kiedy rozważamy klasyczną wartość bezwzględną na $\mathbb Q$ czy $\mathbb R$. Spróbujmy teraz przeformułować tę zasadę. Mówi ona, że istnieją dowolnie duże liczby całkowite, tzn. takie, że ich wartość bezwględna jest dowolnie duża.
+To tłumaczy nam, jaka jest różnica między archimedesowskimi oraz niearchimedesowskimi wartościami bezwzględnymi.
+\emph{Zasada Archimedesa} mówi, że mając dane $x,y\in \mathbb K$, $x\neq 0$, zawsze znajdziemy takie $n\in\mathbb N$, że $|nx| > |y|$.
+Jest to prawda, kiedy rozważamy klasyczną wartość bezwzględną na $\mathbb Q$ czy $\mathbb R$.
+Spróbujmy teraz przeformułować tę zasadę.
+Mówi ona, że istnieją dowolnie duże liczby całkowite, tzn. takie, że ich wartość bezwględna jest dowolnie duża.
+Formalniej, zasada Archimedesa jest równoważna ze stwierdzeniem, że $\sup\{|n|:n\in\mathbb Z\} = +\infty$.
+Fakt ten można jeszcze raz przeformułować: wartość bezwzględna $|\cdot|$ jest niearchimedesowska wtedy i tylko wtedy, gdy $\sup\{|n|:n\in\mathbb Z\} = 1$.
+Innych możliwości nie ma!
 
-Formalniej, zasada Archimedesa jest równoważna ze stwierdzeniem, że $\sup\{|n|:n\in\mathbb Z\} = +\infty$. Fakt ten można jeszcze raz przeformułować: wartość bezwzględna $|\cdot|$ jest niearchimedesowska wtedy i tylko wtedy, gdy $\sup\{|n|:n\in\mathbb Z\} = 1$. Innych możliwości nie ma!
+\begin{fkt}
+Jeśli $\sup\{|n|:n\in\mathbb Z\} = C < +\infty$, to $|\cdot|$ jest niearchimedesowska i $C = 1$.
+\end{fkt}
 
-\begin{fkt}Jeśli $\sup\{|n|:n\in\mathbb Z\} = C < +\infty$, to $|\cdot|$ jest niearchimedesowska i $C = 1$.\end{fkt}
-
-\begin{proof}Przyjmijmy nie wprost, że $C > 1$. Skoro tak, to z pewnością istnieje liczba całkowita $m$ taka, że $|m| > 1$. Wiemy jednak, że $|m^k| = |m|^k$ staje się dowolnie duże, kiedy $k$ rośnie, więc $C$ nie może być skończone. Doszliśmy do sprzeczności, więc $C \le 1$, ale $|1| = 1$, więc $C=1$, a sama norma jest niearchimedesowska.\end{proof}
+\begin{proof}
+Przyjmijmy nie wprost, że $C > 1$.
+Skoro tak, to z pewnością istnieje liczba całkowita $m$ taka, że $|m| > 1$.
+Wiemy jednak, że $|m^k| = |m|^k$ staje się dowolnie duże, kiedy $k$ rośnie, więc $C$ nie może być skończone.
+Doszliśmy do sprzeczności, więc $C \le 1$.
+Dla dowolnej normy mamy $|1| = 1$, a zatem $C=1$, a sama norma jest niearchimedesowska.
+\end{proof}
 
 \section{Topologia}
-Jeżeli mamy do dyspozycji wartość bezwzględną, to jesteśmy w stanie mierzyć rozmiary, tzn. odległości między liczbymi (ustalić metrykę). Po zdefiniowaniu metryki możemy zdefiniować otwarte i domknięte zbiory oraz badać je, tzn. zajmować się czymś, co nazywa się topologią.
+Jeżeli mamy do dyspozycji wartość bezwzględną, to jesteśmy w stanie mierzyć rozmiary, tzn. odległości między liczbymi (ustalić metrykę).
+Po zdefiniowaniu metryki możemy zdefiniować otwarte i domknięte zbiory oraz badać je, tzn. zajmować się czymś, co nazywa się topologią.
 
-\begin{dff}Niech $\mathbb K$ będzie ciałem, zaś $|\cdot|$ -- wartością bezwzględną na $\mathbb K$. Odległość między dowolnymi dwoma elementami ciała, $x,y\in\mathbb K$, wyraża się wzorem $d(x,y) = |x-y|$ i nazywamy ją metryką indukowaną przez normę.\end{dff}
+\begin{dff}
+Niech $\mathbb K$ będzie ciałem, zaś $|\cdot|$ -- wartością bezwzględną na $\mathbb K$.
+Odległość między dowolnymi dwoma elementami ciała, $x,y\in\mathbb K$, wyraża się wzorem $d(x,y) = |x-y|$ i nazywamy ją metryką indukowaną przez normę.
+\end{dff}
 
-Wiele własności odległości między liczbami rzeczywistymi może zostać uogólnionych. I tak, dla każdej metryki prawdziwe są następujące stwierdzenia:
+Wiele własności odległości między liczbami rzeczywistymi może zostać uogólnionych.
+I tak, dla każdej metryki prawdziwe są następujące stwierdzenia:
 \begin{enumx}
 \item $(x,y \in \mathbb K) (d(x,x) \ge 0 \wedge d(x,y) = 0 \iff x = y)$
 \item $(x,y \in \mathbb K) (d(x,y) = d(y,x))$
 \item $(x,y,z \in \mathbb K) (d(x,y) + d(y,z) \ge d(x,z)$
 \end{enumx}
 
-Ostatnia nierówność zwana jest nierównością trójkąta, bo wyraża fakt, że suma długości dwóch boków dowolnego trójkąta jest niemniejsza niż długość trzeciego boku (odcinek jest najkrótszą krzywą łączącą dwa punkty). Zbiór, na którym zdefiniowana jest metryka, nazywamy przestrzenią metryczną. Każde ciało z wartością bezwzględną może zostać uczynione taką przestrzenią (z metryką indukowaną przez normę). Chcesz wiedzieć więcej na temat przestrzeni metrycznych -- zapraszam na wykład z topologii.
+Ostatnia nierówność zwana jest nierównością trójkąta, bo wyraża fakt, że suma długości dwóch boków dowolnego trójkąta jest niemniejsza niż długość trzeciego boku (odcinek jest najkrótszą krzywą łączącą dwa punkty).
+Zbiór, na którym zdefiniowana jest metryka, nazywamy przestrzenią metryczną.
+Każde ciało z wartością bezwzględną może zostać uczynione taką przestrzenią (z metryką indukowaną przez normę).
+Chcesz wiedzieć więcej na temat przestrzeni metrycznych -- zapraszam na wykład z topologii.
 
-\begin{prb}$\mathbb K$ jest ciałem topologicznym dzięki metryce $d(x,y)$, bo dodawanie, mnożenie i odwracanie są funkcjami ciągłymi, co zapisujemy:
+\begin{prb}
+$\mathbb K$ jest ciałem topologicznym dzięki metryce $d(x,y)$, bo dodawanie, mnożenie i odwracanie są funkcjami ciągłymi, co zapisujemy:
 \begin{enumx}
 \item $(\forall x_0, y_0 \in \mathbb K) (\forall \varepsilon > 0) (\exists \delta > 0)(d(x,x_0) < \delta \wedge d(y,y_0) < \delta \implies d(x+y,x_0+y_0) < \varepsilon)$
 \item $(\forall x_0, y_0 \in \mathbb K) (\forall \varepsilon > 0) (\exists \delta > 0)(d(x,x_0) < \delta \wedge d(y,y_0) < \delta \implies d(xy,x_0y_0) < \varepsilon)$
 \item $(\forall x_0 \in \mathbb K\setminus\{0\}) (\forall \varepsilon > 0) (\exists \delta > 0)(d(x,x_0) < \delta \implies x \neq 0 \wedge d(1/x, 1/x_0) < \varepsilon)$
-\end{enumx}\end{prb}
+\end{enumx}
+\end{prb}
 
-\begin{fkt}Niech $|\cdot|$ będzie normą na ciele $\mathbb K$, zdefiniujmy metrykę przez $d(x,y) = |x-y|$. Norma $|\cdot|$ jest niearchimedesowska wtedy i tylko wtedy, gdy dla dowolnych $x,y,z\in\mathbb K$ mamy $d(x,y) \le \max(d(x,z), d(z,y))$.\end{fkt}
+\begin{fkt}
+Niech $|\cdot|$ będzie normą na ciele $\mathbb K$, zdefiniujmy metrykę przez $d(x,y) = |x-y|$.
+Norma $|\cdot|$ jest niearchimedesowska wtedy i tylko wtedy, gdy dla dowolnych $x,y,z\in\mathbb K$ mamy $d(x,y) \le \max(d(x,z), d(z,y))$.
+\end{fkt}
 
-\begin{proof}Najpierw implikacja w prawo: Stosujemy własność niearchimedesowską do równania $(x-y) = (x-z) + (z-y)$. Potem implikacja w lewo: Ustalamy $y = -y'$ i $z=0$ w nierówności z faktu: $|x- (-y')| = |x+y'| \le \max (|x-0|, |0-y'|) = \max (|x|, |y'|)$.\end{proof}
+\begin{proof}
+Najpierw implikacja w prawo: stosujemy własność niearchimedesowską do równania $(x-y) = (x-z) + (z-y)$.
+Potem implikacja w lewo: ustalamy $y = -y'$ i $z=0$ w nierówności z faktu: $|x- (-y')| = |x+y'| \le \max (|x-0|, |0-y'|) = \max (|x|, |y'|)$.
+\end{proof}
 
-Nierówność z ostatniego faktu znana jest jako \emph{nierówność ultrametryczna}. Metrykę, dla której jest prawdziwa, nazywamy ultrametryką. Przestrzeń z ultrametryką nazywamy przestrzenią ultrametryczną. Okazuje się, że takie przestrzenie zachowują się dziwnie, co nie powinno dziwić, bo sposób mierzenia odległości jest dziwny. To ciekawe, że znalazły już swoje zastosowanie: używa się ich do opisu szkła spinowego.
+Nierówność z ostatniego faktu znana jest jako \emph{nierówność ultrametryczna}.
+Metrykę, dla której jest prawdziwa, nazywamy ultrametryką. 
+Przestrzeń z ultrametryką nazywamy przestrzenią ultrametryczną. 
+Okazuje się, że takie przestrzenie zachowują się dziwnie, co nie powinno dziwić, bo sposób mierzenia odległości jest dziwny.
+To ciekawe, że znalazły już swoje zastosowanie: używa się ich do opisu szkła spinowego.
 
 \begin{fkt}Niech $\mathbb K$ będzie ciałem, zaś $|\cdot|$ niearchimedesowską normą bezwzględną na $\mathbb K$. Jeśli $x,y$ są ustalonymi elementami $\mathbb K$ o różnych normach, tzn. $|x| \neq |y|$, to $|x+y| = \max(|x|, |y|)$.\end{fkt}
 
