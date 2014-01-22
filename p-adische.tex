@@ -1,4 +1,4 @@
-\documentclass[a4paper,fleqn]{article}
+\documentclass[a4paper,fleqn,9pt]{extarticle}
 \usepackage{amsmath, amsfonts, amsthm, amssymb,}
 
 \usepackage{multicol}
@@ -38,59 +38,65 @@
 {\end{itemize}}
 
 \title{\textbf{Liczby $p$-adyczne}}
-\author{}
-\date{}
+\author{John Doe}
 
 \begin{document}
-%\maketitle
-\begin{multicols}{2}
-\begin{center}\textbf{\huge Liczby $p$-adyczne}\end{center}
+\maketitle
+%\begin{center}\textbf{\huge Liczby $p$-adyczne}\end{center}
 
 Celem tych notatek jest pokazanie tego, co daje $p$-adyczna ścieżka rozwoju. Naszym zamiarem nie jest naukowa ekspedycja, ale zwiedzanie, chcemy tylko zapoznać się z dziwnym światem liczb $p$-adycznych i jego prawami. Rozpoczynamy od analogii Hensela, potem badamy własności wartości bezwzględnych. Definiujemy $p$-adyczną waluację i normę, by móc udowodnić tw. Ostrowskiego i rozszerzyć ciało $\mathbb Q$ w alternatywny wobec konstrukcji ciągów Cauchy'ego sposób, co stanowi zalążek dla analizy $p$-adycznej. Drogi Czytelniku, mam nadzieję, że znajdziesz przyjemność w obcowaniu z tą piękną córką matematuni!
 
+
 \textbf{Żarcik}. \emph{Do $p$-adycznego baru wchodzi nieskończona liczba matematyków. Piewszy zamawia $p-1$ piw, drugi $(p-1)^2$, trzeci $(p-1)^3$, i tak dalej. Barman, młody student analizy $p$-adycznej, wystawia jeden kufel, a matematycy jednogłośnie stwierdzają, że są idiotami i nalewają piwo do pełna.}
 
-%\textbf{Zastosowania liczb $p$-adycznych, czyli do czego to się przydaje}: dowód faktu, że jedyna l. całkowita w  ciągu sum częściowych szeregu $\sum_n 1/n$ to $1$, atakowanie pewnych równań diofantycznych,  {dowód twierdzenia Monsky'ego (niemożliwe jest rozcięcie kwadratu na nieparzyście wiele trójkątów o tym samym polu)}, mechanika kwantowa (w świecie liczb $p$-adycznych można uniknąć renormalizacji, tj. traktowania rozbieżnych szeregów jak skończonych wielkości).
+%\textbf{Zastosowania liczb $p$-adycznych, czyli do czego to się przydaje}: dowód faktu, że jedyna l. całkowita w ciągu sum częściowych szeregu $\sum_n 1/n$ to $1$, atakowanie pewnych równań diofantycznych, {dowód twierdzenia Monsky'ego (niemożliwe jest rozcięcie kwadratu na nieparzyście wiele trójkątów o tym samym polu)}, mechanika kwantowa (w świecie liczb $p$-adycznych można uniknąć renormalizacji, tj. traktowania rozbieżnych szeregów jak skończonych wielkości).
 
 \section{Motywacja}
-Liczby $p$-adyczne zostały wprowadzone do matematyki przez Hensela\footnote{\textsc{Kurt Hensel} (29.12.1861 -- 01.06.1941), matematyk niemiecki}.
-Wydaje się, że jego główną motywacją była analogia pomiędzy pierścieniem liczb całkowitych $\mathbb Z$ (razem z ciałem ułamków $\mathbb Q$) i pierścieniem wielomianów o zespolonych współczynnikach $C[X]$ (razem z ciałem funkcji wymiernych $\mathbb C(X)$). Mówiąc dokładniej: $f(X) \in \mathbb C(X)$ jest funkcją wymierną, jeżeli jest ilorazem dwóch wielomianów: \[f(X) = \frac{P(X)}{R(X)}, \text{ gdzie } P(X)\in \mathbb C(X), R(X)\in \mathbb C(X) \text { i } R(X) \neq 0.\]
-W podobny sposób możemy przedstawić dowolną liczbę wymierną $x \in \mathbb Q$ jako iloraz dwóch liczb całkowitych: \[x = \frac{a}{b}, \text{ gdzie } a\in \mathbb Z, b \in \mathbb Z \text { i } b \neq 0.\]
+Liczby $p$-adyczne zostały wprowadzone do matematyki przez Hensela\footnote{\textsc{Kurt Hensel} (29.12.1861 -- 01.06.1941), matematyk niemiecki}. Wydaje się, że jego główną motywacją była analogia pomiędzy pierścieniem liczb całkowitych $\mathbb Z$ (razem z ciałem ułamków $\mathbb Q$) i pierścieniem wielomianów o zespolonych współczynnikach $C[X]$ (razem z ciałem funkcji wymiernych $\mathbb C(X)$). Mówiąc dokładniej: $f(X) \in \mathbb C(X)$ jest funkcją wymierną, jeżeli jest ilorazem dwóch wielomianów: 
+\begin{equation*}f(X) = \frac{P(X)}{R(X)}, \text{ gdzie } P(X)\in \mathbb C(X), R(X)\in \mathbb C(X) \text { i } R(X) \neq 0.\end{equation*}
+W podobny sposób możemy przedstawić dowolną liczbę wymierną $x \in \mathbb Q$ jako iloraz dwóch liczb całkowitych:
+\begin{equation*}x = \frac{a}{b}, \text{ gdzie } a\in \mathbb Z, b \in \mathbb Z \text { i } b \neq 0.\end{equation*}
 Co ciekawe, oba pierścienie są do siebie podobne: zarówno $\mathbb Z$ jak i $\mathbb C[X]$ są pierścieniami z jednoznacznością rozkładu (\emph{UFD, unique factorization domain}). Każda liczba całkowita może zostać jednoznacznie przedstawiona jako iloczyn $\pm 1$ i skończonej liczby liczb pierwszych, każdy wielomian może zostać jednoznacznie zapisany jako $P(X) = a(X - z_1)(X - z_2)\cdot\ldots\cdot(X - z_n)$, gdzie $a$ i $z_1, z_2, \cdots, z_n$ są liczbami zespolonymi. Hensel zauważył, że \emph{liczby pierwsze $p\in\mathbb Z$ są odpowiednikiem wielomianów pierwszego stopnia $X - z \in \mathbb C[X]$}. Dotychczas nie powiedzieliśmy niczego godnego uwagi. Henselowi udało się jednak dostrzec, że analogia jest głębsza. Mając dany wielomian $P(X)$ i liczbę $z \in \mathbb C$ możemy zapisać (np. korzystając z rozwinięcia w szereg Taylora\footnote{\textsc{Brook Taylor} (18.08.1685 -- 29.12.1731), matematyk angielski.}) wielomian w formie
 \begin{align*}
-P(X) & = a_0 + a_1(X-z) + a_2(X-z)^2 + \cdots + a_n(X-z)^n \\
-& = \sum_{k=0}^n a_k(X-z)^k, \text{ gdzie } a_k \in\mathbb C
+P(X) = a_0 + a_1(X-z) + a_2(X-z)^2 + \cdots + a_n(X-z)^n = \sum_{k=0}^n a_k(X-z)^k, \text{ gdzie } a_k \in\mathbb C
 \end{align*}
 To działa też dla liczb całkowitych (na początek tylko dodatnich): mając liczbę całkowitą $m$ i liczbę pierwszą $p$ możemy zapisać $m$ w systemie pozycyjnym o podstawie $p$:
 \begin{align*}
-m & = a_0 + a_1p+ a_2p^2 + \cdots + a_np^n \\
-&  = \sum_{k=0}^n a_kp^k, \text{ gdzie } a_k \in\mathbb Z \text{ i } 0 \le a_k \le p-1
+m & = a_0 + a_1p+ a_2p^2 + \cdots + a_np^n = \sum_{k=0}^n a_kp^k, \text{ gdzie } a_k \in\mathbb Z \text{ i } 0 \le a_k \le p-1
 \end{align*}
-
-Dlaczego takie rozwinięcia są ciekawe? Dają nam pewną lokalną wiedzę! Rozwinięcie w potęgi $(X-z)$ daje nam informację o tym, czy $P(X)$ znika w $z$ i do którego rzędu. Rowinięcie o podstawie $p$ mówi nam, czy i jak bardzo $m$ jest podzielne przez $p$. Oto przykład: $72 = 0 + 0 \cdot 3^1 + 2\cdot 3^2+ 2\cdot 3^3$, czyli $3^2\mid 72$.
-
-Dla wielomianów i ich ilorazów możemy posunąć się jeszcze dalej. Weźmy $f(X) \in \mathbb C(X)$ i $z\in\mathbb C$, zawsze istnieje rozwinięcie
+Dlaczego takie rozwinięcia są ciekawe? Dają nam pewną lokalną wiedzę! Rozwinięcie w potęgi $(X-z)$ daje nam informację o tym, czy $P(X)$ znika w $z$ i do którego rzędu. Rowinięcie o podstawie $p$ mówi nam, czy i jak bardzo $m$ jest podzielne przez $p$. Oto przykład: $72 = 0 + 0 \cdot 3^1 + 2\cdot 3^2+ 2\cdot 3^3$, czyli $3^2\mid 72$. Dla wielomianów i ich ilorazów możemy posunąć się jeszcze dalej. Weźmy $f(X) \in \mathbb C(X)$ i $z\in\mathbb C$, zawsze istnieje rozwinięcie
 \begin{align*}
-f(X) & = \frac{P(X)}{R(X)} = \sum_{k\ge n_0} a_k(X-z)^k \\
-& = a_{n_0} (X-z)^{n_0} + a_{1+n_0} (X-z)^{1+n_0} + \dots
+f(X) & = \frac{P(X)}{R(X)} = \sum_{k\ge n_0} a_k(X-z)^k = a_{n_0} (X-z)^{n_0} + a_{1+n_0} (X-z)^{1+n_0} + \dots
 \end{align*}
 
 To nic innego jak tylko rozwinięcie w szereg Laurenta\footnote{\textsc{Pierre Alphonse Laurent} (18.07.1813 -- 02.09.1854), matematyk francuski.}, znane z analizy zespolonej, które różni się znacząco od poprzedniego (szeregu)! Po pierwsze, być może $n_0<0$, tj. pierwszy wykładnik jest ujemny, czyli $z$ jest pierwiastkiem $R(X)$, ale nie $P(X)$. W języku analizy mówimy, że $f(X)$ ma biegun w $z$ rzędu $-n_0$. Po drugie, szereg zazwyczaj nie jest skończony. Okazuje się, że jest on skończony wtedy i tylko wtedy, gdy zapiszemy funkcję $f(X) = P(X)/R(X)$ jako nieskracalny ułamek, a $R(X)$ okaże się być potęgą $(X-z)$. Okazuje się też, że $f(z')$ jest zbieżnym szeregiem, o ile $z'$ jest prawie (ale nie dokładnie!) równe $z$.
 
-Traktujemy szeregi jako formalne obiekty i nie przejmujemy się tym, czy są zbieżne. Oto przykład.
-\[f(X) = \frac{X}{X-1}\]
+Traktujemy szeregi jako formalne obiekty i nie przejmujemy się tym, czy są zbieżne. Oto przykład: niech $f(X) = {X}/{(X-1)}$.
 Będziemy rozwijać tę funkcję dla różnych $z$, co jest po prostu ćwiczeniem z analizy. Jeśli $z=0$, to 
 \begin{align*}
-\frac{X}{X-1} & = -X \cdot \frac{1}{1-X} = -X (1+X+X^2+X^3+\dots) \\
-& = -X -X^2-X^3-X^4-\dots
+\frac{X}{X-1} & 
+ = -X \cdot \frac{1}{1-X} 
+ = -X (1+X+X^2+X^3+\dots)
+ = -X -X^2-X^3-X^4-\dots
 \end{align*}
-pokazuje nam, że $f(0) = 0$ z krotnością jeden. Weźmy teraz $z=1$ i zauważmy, że \[\frac{X}{X-1} = \frac{1+X-1}{X-1} = (X-1)^{-1}+ 1\]
-To oznacza, że w tym miejscu mamy do czynienia z biegunem rzędu jeden (a  rozwinięcie jest skończone!). Ustalmy wreszcie $z=2$, nie jest to ani biegun, ani miejsce zerowe, mamy \[\frac{X}{X-1} = 2 - (X-2) + (X-2)^2-(X-2)^3+\dots\]
-Czas na puentę. Każda funkcja wymierna może być wyrażona jako szereg, którego wyrazy są krotnościami potęg \emph{pierwszego}\footnote{Informacja dla wiecznie nienasyconych: ideały generowane przez elementy postaci $(X-z)$ są dokładnie ideałami pierwszymi pierścienia $\mathbb C[X]$, więc mamy prawo nazywać je pierwszymi} wielomianu $(X-z)$. Pomysłem Hensela było rozciągnięcie analogii między $\mathbb Z$ i $\mathbb C[X]$ na takie rozwinięcia. Radzimy sobie dobrze z liczbami całkowitymi, co z ułamkami? Zgodnie z intuicją, zapisujemy licznik i mianownik jako sumę potęg $p$, a następnie dzielimy formalnie. Najlepiej widać to na przykładzie, ustalmy więc $p=3$, $a=24$, $b=17$. Łatwo widać, że:
+pokazuje nam, że $f(0) = 0$ z krotnością jeden. Weźmy teraz $z=1$ i zauważmy, że
+\begin{equation*}
+\frac{X}{X-1}
+ = \frac{1+X-1}{X-1}
+ = (X-1)^{-1}+ 1
+\end{equation*}
+To oznacza, że w tym miejscu mamy do czynienia z biegunem rzędu jeden (a rozwinięcie jest skończone!). Ustalmy wreszcie $z=2$, nie jest to ani biegun, ani miejsce zerowe, mamy
+\begin{equation*}
+\frac{X}{X-1}
+ = 2 - (X-2) + (X-2)^2-(X-2)^3+\dots
+\end{equation*}
+Czas na puentę. Każda funkcja wymierna może być wyrażona jako szereg, którego wyrazy są krotnościami potęg \emph{pierwszego}\footnote{Informacja dla wiecznie nienasyconych: ideały generowane przez elementy postaci $(X-z)$ są dokładnie ideałami pierwszymi pierścienia $\mathbb C[X]$, więc mamy prawo nazywać je pierwszymi} wielomianu $(X-z)$. Pomysłem Hensela było rozciągnięcie analogii między $\mathbb Z$ i $\mathbb C[X]$ na takie rozwinięcia. Radzimy sobie dobrze z liczbami całkowitymi, co z ułamkami? Zgodnie z intuicją, zapisujemy licznik i mianownik jako sumę potęg $p$, a następnie dzielimy formalnie. Najlepiej widać to na przykładzie, ustalmy więc $p=3$, $a=21$, $b=19$. Łatwo widać, że:
 \begin{align*}
-a & = 24= 0+2\cdot+2\cdot 3^2 = 2p+2p^2\\
-b & = 17 = 2 + 2 \cdot 3 + 1 \cdot 3^2 = 2+2p+2p^2 \\
-\frac{a}{b} & = \frac{2p+2p^2}{2+2p+p^2} = p+p^3+2p^5+p^7+p^8+2p^9+\dots
+a & = 21= 0+1\cdot 3+2\cdot 3^2 = p+2p^2\\
+b & = 19 = 1 + 0 \cdot 3 + 2 \cdot 3^2 = 1+2p^2 \\
+\frac{a}{b} &
+ = \frac{p+2p^2}{1+2p^2}
+ = p + 2p^2 + p^3 + p^4 + 2p^5 + 2p^6 + p^9 + 2p^{10} + p^{12} + p^{13} + 2p^{16} + 2p^{17} + p^{18}\dots
 \end{align*}
 
 
@@ -98,7 +104,7 @@ b & = 17 = 2 + 2 \cdot 3 + 1 \cdot 3^2 = 2+2p+2p^2 \\
 \textbf{Tutaj czegoś brakuje.}
 
 %Rozwińmy funkcję $\log (x+1)$ w szereg MacLaurina: mamy $\log(x+1) = x - x^2/2 + x^3/3 - x^4/4 + \dots$. Wiemy, że potęgi dwójki są małe w $\mathbb Q_2$, podstawmy $x= -2$ do rozwinięcia, by policzyć $\log -1$.
-%\[\log (-1) = \log(1-2) = -\left(2+\frac{2^2}{2}+\frac{2^3}{3}+\frac{2^4}{4} + \cdots\right)\]
+%\begin{equation*}\log (-1) = \log(1-2) = -\left(2+\frac{2^2}{2}+\frac{2^3}{3}+\frac{2^4}{4} + \cdots\right)\end{equation*}
 %Szereg jest bardzo rozbieżny w $\mathbb R$, ale w magicznym świecie liczb $2$-adycznych jest jak najbardziej sumowalny. A skoro jest sumowalny, to musi zbiegać do zera, albowiem $2\log(-1) = \log(1) = 0.$ To oznacza, że sumy częściowe 
 \section{Wstęp}
 %\begin{abstract}
@@ -107,29 +113,32 @@ b & = 17 = 2 + 2 \cdot 3 + 1 \cdot 3^2 = 2+2p+2p^2 \\
 
 
 
-W tym rozdziale $\mathbb K$ będzie oznaczało dowolne ustalone ciało, zaś $\mathbb R_+$ będzie zbiorem $\{x\in\mathbb R:x\ge 0\}$.  Przypomnijmy, że ciało to przemienny pierścień, w którym wszystkie niezerowe elementy są odwracalne, tzn. jest to taka struktura $(K,\oplus, \odot,1,0)$, która spełnia określone warunki:
+W tym rozdziale $\mathbb K$ będzie oznaczało dowolne ustalone ciało, zaś $\mathbb R_+$ będzie zbiorem $\{x\in\mathbb R:x\ge 0\}$.
+Przypomnijmy, że ciało to przemienny pierścień, w którym wszystkie niezerowe elementy są odwracalne, tzn. jest to taka struktura $(K,\oplus, \odot,1,0)$, która spełnia określone warunki:
 \begin{enumx}
 \item zbiór $K$ zawiera co najmniej dwa elementy, $0$ oraz $1$,
 \item $\oplus$ i $\odot$ są działaniami wewnętrznymi w $K$ i dla dowolnych $a,b,c\in K$ prawdą jest, że:
 \begin{itemx}
-\item $a  \oplus  (b  \oplus  c) = (a  \oplus  b)  \oplus  c$,
-\item $a \oplus 0=a$,
-\item $(\exists d \in K)(a \oplus d= 0)$,
-\item $a \oplus b=b \oplus a$,
+\item $a \oplus (b \oplus c) = (a \oplus b) \oplus c$,
+\item $a \oplus 0 = a$,
+\item $(\exists d \in K)(a \oplus d = 0)$,
+\item $a \oplus b = b \oplus a$,
 \item $a \odot (b \odot c) = (a \odot b) \odot c$,
 \item $a \odot 1 = a$,
-\item $a \odot (b \oplus c)= (a \odot b)  \oplus  (a \odot c)$,
+\item $a \odot (b \oplus c)= (a \odot b) \oplus (a \odot c)$,
 \item $a \odot b = b \odot a$,
 \end{itemx}
 \item każdy niezerowy element jest odwracalny, co oznacza, że
 \begin{itemx}
-\item $(\forall a \in K\setminus\{0\})(\exists b\in K)(a\odot b = 1)$.
+\item $(\forall a \in K \setminus \{0\})(\exists b \in K)(a \odot b = 1)$.
 \end{itemx}
 \end{enumx}
 
-Zacznijmy od możliwie najprostszej definicji wartości bezwzględnej na $\mathbb K$. Postaramy się uchwycić najważniejsze własności klasycznej wartości bezwzględnej.
+Zacznijmy od możliwie najprostszej definicji wartości bezwzględnej na $\mathbb K$.
+Postaramy się uchwycić najważniejsze własności klasycznej wartości bezwzględnej.
 
-\begin{dff} Wartość bezwzględna (norma) na $\mathbb K$ to dowolna funkcja $|\cdot| : \mathbb K \rightarrow \mathbb R_+$, która jest:
+\begin{dff}
+Wartość bezwzględna (norma) na $\mathbb K$ to dowolna funkcja $|\cdot| : \mathbb K \rightarrow \mathbb R_+$, która jest:
 \begin{itemx}
 \item dodatnio określona: $|x| = 0 \iff x = 0$ 
 \item multiplikatywna: $(\forall x, y\in\mathbb K)(|xy|=|x|\cdot|y|)$
@@ -141,37 +150,45 @@ Mówimy, że wartość bezwzględna jest niearchimedesowska, jeżeli spełnia do
 \end{itemx}
 \end{dff}
 
-Zauważmy, że czwarty warunek implikuje trzeci, ponieważ $\max(|x|,|y|)$ jest z pewnością mniejsze od sumy $|x| + |y|$. Ważność tych norm i geneza ich nazwy zostanie przedyskutowana później, na razie przyjmijmy do wiadomości, że są dość popularne. Czas na przykłady!
+Zauważmy, że czwarty warunek implikuje trzeci, ponieważ $\max(|x|,|y|)$ jest z pewnością mniejsze od sumy $|x| + |y|$.
+Ważność tych norm i geneza ich nazwy zostanie przedyskutowana później, na razie przyjmijmy do wiadomości, że są dość popularne. 
+Czas na przykłady!
+\textbf{Klasyczna wartość bezwzględna}: niech $\mathbb K = \mathbb Q$ i ustalmy, że dla $x\in\mathbb Q$ mamy $|x| = \max(x,-x)$. Jest ona archimedesowska, ponieważ czwarty warunek z definicji nie zachodzi dla $x = y = 1$.
+Zazwyczaj określana jako \emph{wartość bezwzględna w nieskończoności}, jest oznaczana przez $|\cdot|_\infty$.
+\textbf{Trywialna wartość bezwzględna}: przyjmijmy, że $|x| = 1$, jeśli $x$ nie jest zerem i $|0| = 0$.
+W ten sposób zdefiniowaliśmy najprostszą niearchimedesowską wartość bezwzględną dla dowolnego $\mathbb K$, którą będziemy często pomijać w twierdzeniach.
 
-\textbf{Klasyczna wartość bezwzględna}: niech $\mathbb K = \mathbb Q$ i ustalmy, że dla $x\in\mathbb Q$ mamy $|x| = \max(x,-x)$. Jest ona archimedesowska, ponieważ czwarty warunek z definicji nie zachodzi dla $x = y = 1$. Zazwyczaj określana jako \emph{wartość bezwzględna w nieskończoności}, jest oznaczana przez $|\cdot|_\infty$.
+W oparciu o samą definicję możemy już coś wywnioskować.
+Warto na przykład zauważyć, że dla skończonych ciał nasza teoria trywializuje się! 
 
-\textbf{Trywialna wartość bezwzględna}: przyjmijmy, że $|x| = 1$, jeśli $x$ nie jest zerem i $|0| = 0$. W ten sposób zdefiniowaliśmy najprostszą niearchimedesowską wartość bezwzględną dla dowolnego $\mathbb K$, którą będziemy często pomijać w twierdzeniach.
+\begin{fkt}
+Trywialna norma jest jedyną, jaką możemy wprowadzić na skończonym ciele $\mathbb K$.
+\end{fkt}
 
-W oparciu o samą definicję możemy już coś wywnioskować. Warto na przykład zauważyć, że dla skończonych ciał nasza teoria trywializuje się! 
-
-\begin{fkt}Trywialna norma jest jedyną, jaką możemy wprowadzić na skończonym ciele $\mathbb K$. \end{fkt}
-\begin{proof}Posłużymy się \textbf{twierdzeniem Lagrange'a}: w grupie skończonej $G$ rząd dowolnej podgrupy jest dzielnikiem rzędu $G$. Niech $|\cdot|$ będzie normą na $\mathbb K$, wtedy z definicji $|0| = 0$. Równość $1 = 1 \cdot 1$ wymusza $|1| = |1| \cdot |1|$. Jedynym dodatnim rozwiązaniem jest $|1| = 1$. $\mathbb K$ jest skończonym ciałem o mocy $q$, więc dla dowolnego niezerowego $x\in\mathbb K$ (na mocy tw. Lagrange'a) mamy $|x|^{q-1} = 1$. To sprawia, że $|x| = 1$, zaś norma jest trywialna. \end{proof}
+\begin{proof}
+Posłużymy się \textbf{twierdzeniem Lagrange'a}: w grupie skończonej $G$ rząd dowolnej podgrupy jest dzielnikiem rzędu $G$.
+Niech $|\cdot|$ będzie normą na $\mathbb K$, wtedy z definicji $|0| = 0$. Równość $1 = 1 \cdot 1$ wymusza $|1| = |1| \cdot |1|$. Jedynym dodatnim rozwiązaniem jest $|1| = 1$. $\mathbb K$ jest skończonym ciałem o mocy $q$, więc dla dowolnego niezerowego $x\in\mathbb K$ (na mocy tw. Lagrange'a) mamy $|x|^{q-1} = 1$. To sprawia, że $|x| = 1$, zaś norma jest trywialna. \end{proof}
  
  Zaraz zdefiniujemy coś, co będzie obiektem naszego zainteresowania przez prawie cały czas. Niech $\mathbb K$ będzie zbiorem liczb wymiernych $\mathbb Q$, zaś $p\in\mathbb Z$ dowolną liczbą pierwszą. Chcielibyśmy wiedzieć, jak bardzo $n\in\mathbb Z$ jest podzielna przez $p$. Formalnie:
 
-\begin{dff}Niech $p$ będzie liczbą pierwszą. $p$-adyczna waluacja na $\mathbb Z$ to funkcja $v_p:\mathbb Z\setminus\{0\} \rightarrow \mathbb R$ zdefiniowana tak: dla $n\in\mathbb Z\setminus\{0\}$ niech $v_p(n)$ będzie jedyną dodatnią liczbą całkowitą spełniającą \[n = p^{v_p(n)} \cdot n_0, \quad \text {przy czym} \quad p\nmid n_0.\] Rozszerzamy $v_p$ na ciało liczb wymiernych: jeśli $x = a/b \in\mathbb Q$, to $v_p(x) = v_p(a) - v_p(b)$.\end{dff}
+\begin{dff}Niech $p$ będzie liczbą pierwszą. $p$-adyczna waluacja na $\mathbb Z$ to funkcja $v_p:\mathbb Z\setminus\{0\} \rightarrow \mathbb R$ zdefiniowana tak: dla $n\in\mathbb Z\setminus\{0\}$ niech $v_p(n)$ będzie jedyną dodatnią liczbą całkowitą spełniającą \begin{equation*}n = p^{v_p(n)} \cdot n_0, \quad \text {przy czym} \quad p\nmid n_0.\end{equation*} Rozszerzamy $v_p$ na ciało liczb wymiernych: jeśli $x = a/b \in\mathbb Q$, to $v_p(x) = v_p(a) - v_p(b)$.\end{dff}
 
 Zwyczajowo przyjmujemy $v_p(0) = +\infty$, co możemy uzasadnić następująco: gdy podzielimy $0$ przez $p$, to dostaniemy $0$, które możemy znów podzielić przez $p$ -- proces powtarza się dowolnie wiele razy.
 
 \begin{fkt}Jeśli $x\in\mathbb Q$, to wartość $v_p(x)$ nie zależy od wyboru reprezentanta $x$, ilorazu dwóch liczb całkowitych.\end{fkt}
 
-\begin{proof}Jeśli $a/b = c/d$, to $ad = bc$, a zatem $v_p(ad) = v_p(bc)$. Z ZTA wiemy, że $v_p(ad) = v_p(a) + v_p(d)$ i $v_p(bc)= v_p(b) + v_p(c)$, czyli $v_p(a) + v_p(d)  = v_p(b) + v_p(c)$. Teraz łatwo już widać, że \[v_p\left(\frac{a}{b}\right) = v_p(a)-v_p(b) = v_p(c) - v_p(d) = v_p\left(\frac{c}{d}\right)\qedhere\]\end{proof}
+\begin{proof}Jeśli $a/b = c/d$, to $ad = bc$, a zatem $v_p(ad) = v_p(bc)$. Z ZTA wiemy, że $v_p(ad) = v_p(a) + v_p(d)$ i $v_p(bc)= v_p(b) + v_p(c)$, czyli $v_p(a) + v_p(d) = v_p(b) + v_p(c)$. Teraz łatwo już widać, że \begin{equation*}v_p\left(\frac{a}{b}\right) = v_p(a)-v_p(b) = v_p(c) - v_p(d) = v_p\left(\frac{c}{d}\right)\qedhere\end{equation*}\end{proof}
 
 %%% VP: 5 400, 7 902, 2 621, 3 123/48, 5 180*3
 
 \begin{fkt}
 Dla dowolnych $x,y \in \mathbb Q$ waluacja $p$-adyczna spełnia dwie podstawowe zależności, mianowicie
-\[v_p(xy) = v_p(x) + v_p(y), \\ v_p(x+y) \ge \min(v_p(x), v_p(y)).\]
+\begin{equation*}v_p(xy) = v_p(x) + v_p(y), \\ v_p(x+y) \ge \min(v_p(x), v_p(y)).\end{equation*}
 
 \end{fkt}
-\begin{proof}Rozpatrzmy najpierw przypadek, gdy $x,y$ są liczbami całkowitymi. Wtedy $x = p^ax_0$ i $y=p^by_0$, gdzie $p\nmid x_0y_0$, bez straty ogólności mamy $a\le b$. Wtedy  $xy=p^{a+b}x_0y_0$ (co dowodzi pierwszego faktu), dla dowodu drugiego: $x+y=p^ax_0+p^by_0 = p^a\left(x_0+p^{b-a}y_0\right)$. Ustalmy teraz $x=a/b$ i $y=c/d$, przy czym $x,y\in\mathbb Q$.
+\begin{proof}Rozpatrzmy najpierw przypadek, gdy $x,y$ są liczbami całkowitymi. Wtedy $x = p^ax_0$ i $y=p^by_0$, gdzie $p\nmid x_0y_0$, bez straty ogólności mamy $a\le b$. Wtedy $xy=p^{a+b}x_0y_0$ (co dowodzi pierwszego faktu), dla dowodu drugiego: $x+y=p^ax_0+p^by_0 = p^a\left(x_0+p^{b-a}y_0\right)$. Ustalmy teraz $x=a/b$ i $y=c/d$, przy czym $x,y\in\mathbb Q$.
 \begin{align*}
-v_p\left(\frac{ac}{bd}\right) & = v_p\left(ac\right) - v_p\left(bd\right)  = v_p\left(a\right) +v_p\left(c\right) - v_p\left(b\right) - v_p\left(d\right) = v_p\left(\frac{a}{b}\right) +v_p\left(\frac{c}{d}\right) \\
+v_p\left(\frac{ac}{bd}\right) & = v_p\left(ac\right) - v_p\left(bd\right) = v_p\left(a\right) +v_p\left(c\right) - v_p\left(b\right) - v_p\left(d\right) = v_p\left(\frac{a}{b}\right) +v_p\left(\frac{c}{d}\right) \\
 v_p\left(\frac{ad+bc}{bd}\right) & \ge \min(v_p(ad), v_p(bc)) - v_p(bd) \\ & = \min(v_p(a) + v_p(d), v_p(b) + v_p(c)) - v_p(b) -v_p(d) \notag\\
 & = \min(v_p(a) - v_p(b), v_p(c) - v_p(d)) = \min(v_p(x), v_p(y)) \qedhere
 \end{align*}
@@ -179,7 +196,7 @@ v_p\left(\frac{ad+bc}{bd}\right) & \ge \min(v_p(ad), v_p(bc)) - v_p(bd) \\ & = \
 
 Chcemy lepiej rozumieć, jak działa waluacja, dlatego przeliczymy kilka przykładów, zyskamy też wprawę rachunkową. 
 
-\begin{prb}Oblicz: $v_{3}(54)$,  $v_{2}(128/7)$, $v_{3}(10^9)$, $v_3(9!)$, $v_5(400)$, $v_7(902)$, $v_2(621)$, $v_3(123/48)$, $v_5(180/3)$.\end{prb}
+\begin{prb}Oblicz: $v_{3}(54)$, $v_{2}(128/7)$, $v_{3}(10^9)$, $v_3(9!)$, $v_5(400)$, $v_7(902)$, $v_2(621)$, $v_3(123/48)$, $v_5(180/3)$.\end{prb}
 
 \begin{prb}$v_p((p^n)!) = \sum_{k=0}^{n-1}p^k$.\end{prb}
 
@@ -217,14 +234,14 @@ Wniosek: duże potęgi $p$ są małe (!), jeżeli liczymy ich $p$-adyczną warto
 \end{fkt}
 
 Pokażemy teraz pierwsze poważne twierdzenie: warunek konieczny i dostateczny na to, by norma była niearchimedesowska. Zauważmy, że dla każdego ciała $\mathbb K$ mamy odwzorowanie $\mathbb Z \rightarrow \mathbb K$ (inclusion map):
-\[
+\begin{equation*}
 n \mapsto
 \begin{cases}
 {1 + 1 + \dots + 1 + 1} & n\text{ jedynek, jeśli } n > 0 \\
 - ({1 + 1 + \dots + 1 + 1}) & -n \text{ jedynek, jeśli } n < 0 \\
-   0       & \text{jeśli } n =  0 \\
-  \end{cases}
-\]
+ 0  & \text{jeśli } n = 0 \\
+ \end{cases}
+\end{equation*}
 
 Dla przykładu: jeśli $\mathbb Q \subset \mathbb K$, to mamy do czynienia ze zwykłym włożeniem $\mathbb Z$ w $\mathbb Q$, jeśli $\mathbb K$ jest skończonym ciałem, to obrazem odwzorowania będzie podciało $\mathbb K$, które ma pierwszą liczbę elementów.
 
@@ -279,22 +296,22 @@ Efektem ubocznym jest inny interesujący fakt, którego znaczenie kiedyś doceni
 
 \begin{fkt}Wszystkie \emph{trójkąty} w ultraprzestrzeni są równoramienne.\end{fkt}
 
-\begin{proof}Niech $x,y,z\in\mathbb K$ będą elementami naszej przestrzeni, wierzchołkami \emph{trójkąta}. Długości jego boków wyrażają się przez $d(x,y) = |x-y|$, $d(y,z) = |y-z|$, $d(x,z) = |x-z|$. W oczywisty sposób zachodzi $(x-y) + (y-z) = (x-z)$, więc wzywamy do pomocy poprzedni fakt: jeśli $|x-y| \neq |y-z|$, to $|x-z|$ jest równe większej z dwóch pozostałych liczb, co dowodzi równoramienności \emph{trójkąta}.  \end{proof}
+\begin{proof}Niech $x,y,z\in\mathbb K$ będą elementami naszej przestrzeni, wierzchołkami \emph{trójkąta}. Długości jego boków wyrażają się przez $d(x,y) = |x-y|$, $d(y,z) = |y-z|$, $d(x,z) = |x-z|$. W oczywisty sposób zachodzi $(x-y) + (y-z) = (x-z)$, więc wzywamy do pomocy poprzedni fakt: jeśli $|x-y| \neq |y-z|$, to $|x-z|$ jest równe większej z dwóch pozostałych liczb, co dowodzi równoramienności \emph{trójkąta}. \end{proof}
 
 To, co udało nam się pokazać, jest bardzo nieintuicyjne, a jednocześnie ma duży wpływ na topologię naszego ciała. Może spróbujemy zobaczyć co stanie się, kiedy ograniczymy się do $p$-adycznej wartości bezwzględnej? Nie zaszkodzi.
 
 Jak zwykle, piszemy $|x| = p^{-v_p(x)}$. Dla klarowności ograniczymy się do przypadku $x,y\in\mathbb Z$. Umówmy się, że $v_p(x) = a$ oraz $v_p(y)= b$, czyli $x = p^a x'$, $y = p^m y'$ oraz $p\nmid x'y'$. Przetłumaczmy to na wartości bezwzględne: $|x| = p^{-a}$ i $|y| = p^{-b}$. 
 
-Okazuje się, że $|x| > |y|$, jeśli tylko $a < b$, niech zatem $b = a + \varepsilon$ (oczywiście $\varepsilon > 0$). Skoro tak, to $x  +y = p^ax' + p^{a+\varepsilon} y' = p ^a\left(x' + p^\varepsilon y'\right)$,
+Okazuje się, że $|x| > |y|$, jeśli tylko $a < b$, niech zatem $b = a + \varepsilon$ (oczywiście $\varepsilon > 0$). Skoro tak, to $x +y = p^ax' + p^{a+\varepsilon} y' = p ^a\left(x' + p^\varepsilon y'\right)$,
 przy czym $p\nmid x'$, więc $p \nmid (x' + p^\varepsilon y')$ i $v_p(x+y) = a$, a stąd wiemy już, że $|x+y | = p^{-a} = |x|$, tak jak przypuszczaliśmy.
 
-Zajmijmy się teraz drugim przypadkiem, tj. niech $|x| = |y|$ i $a = b$.  Teraz $x+y = p^a(x'+y')$. Chociaż $p\nmid x'$ i $p \nmid y'$, to może się zdarzyć, że $p | (x'+y')$. Jedyne, czego możemy być pewni, to to, że $v_p(x+y) \ge n = \min(v_p(x), v_p(y))$. To oznacza jednak, że $|x+y| \le \max(|x|, |y|) = |x| = |y|$, mogliśmy spodziewać się oczekiwanego.
+Zajmijmy się teraz drugim przypadkiem, tj. niech $|x| = |y|$ i $a = b$. Teraz $x+y = p^a(x'+y')$. Chociaż $p\nmid x'$ i $p \nmid y'$, to może się zdarzyć, że $p | (x'+y')$. Jedyne, czego możemy być pewni, to to, że $v_p(x+y) \ge n = \min(v_p(x), v_p(y))$. To oznacza jednak, że $|x+y| \le \max(|x|, |y|) = |x| = |y|$, mogliśmy spodziewać się oczekiwanego.
 
 \begin{prb}Rozpatrzmy $5$-adyczną topologię na $\mathbb Q$. Jakie są długości boków trójkąta o wierzchołkach $2/15$, $1/5$, $7/15$?\end{prb}
 
 W każdej przestrzeni metrycznej od trójkątów dużo bardziej ciekawsze są kule. Chyba nikt nie przypuszcza, że będą zachowywać się normalnie. Zacznijmy od podania ich definicji.
 
-\begin{dff}Niech $\mathbb K$ będzie ciałem z wartością bezwględną  $|\cdot|$, $a$ elementem $\mathbb K$, zaś $r$ dodatnią liczbą rzeczywistą. Kula otwarta to zbiór $B(a,r)$, kula domknięta to zbiór $\overline{B}(a,r)$.
+\begin{dff}Niech $\mathbb K$ będzie ciałem z wartością bezwględną $|\cdot|$, $a$ elementem $\mathbb K$, zaś $r$ dodatnią liczbą rzeczywistą. Kula otwarta to zbiór $B(a,r)$, kula domknięta to zbiór $\overline{B}(a,r)$.
 \begin{align*}
 B(a,r) & = \left\{x\in\mathbb K: d(x,a) < r \right\} = \left\{x\in\mathbb K: |x-a| < r \right\} \\
 \overline{B}(a,r) & = \left\{x\in\mathbb K: d(x,a) \le r \right\} = \left\{x\in\mathbb K: |x-a| \le r \right\}
@@ -321,7 +338,7 @@ Powyższe stwierdzenie jest prawdziwe niezależnie od rodzaju wartości bezwzgl�
 \begin{proof}
 Dziwność tych stwierdzeń opiera się na fakcie: wszystkie trójkąty są równoramienne.
 
-\textbf{1.} $b\in B(a,r)$ wtedy i tylko wtedy, gdy $|b-a| < r$. Biorąc dowolne $x$ takie, że $|x-a| < r$, korzystamy z własności niearchimedesowskiej by napisać, że zachodzi  $|x-b| \le \max (|x-a|, |b-a|) < r$, czyli $x\in B(b,r)$. Wiemy, że $B(a,r) \subset B(b,r)$, ale możemy pokazać zawieranie w drugą stronę i dostać równość zbiorów.
+\textbf{1.} $b\in B(a,r)$ wtedy i tylko wtedy, gdy $|b-a| < r$. Biorąc dowolne $x$ takie, że $|x-a| < r$, korzystamy z własności niearchimedesowskiej by napisać, że zachodzi $|x-b| \le \max (|x-a|, |b-a|) < r$, czyli $x\in B(b,r)$. Wiemy, że $B(a,r) \subset B(b,r)$, ale możemy pokazać zawieranie w drugą stronę i dostać równość zbiorów.
 
 \textbf{2.} Zamiana $<$ na $\le$ w dowodzie własności 1.
 
@@ -368,11 +385,11 @@ Opanowaliśmy już wystarczająco dużo materiału, by móc ograniczyć nasze og
 
 Weźmy dowolne $x_0\in\mathbb K\setminus\{0\}$ takie, że $|x_0|_1 < 1$\footnote{Dlaczego jest ważne, by $|x_0|_1 < 1$? Co się stanie, jeżeli takiego $x_0$ nie ma?}. Na mocy założenia wiemy, że $|x_0|_2 < 1$, więc istnieje takie rzeczywiste $a > 0$, że $|x_0|_1 = |x_0|_2^a$. Weźmy teraz dowolne $x\in\mathbb K\setminus\{0\}$. Jeżeli $|x|_1 = |x_0|_1$, to musimy mieć $|x|_2 = |x_0|_2$: w przeciwnym przypadku albo $x/x_0$, albo $x_0/x$ miałoby $|\cdot|_2$ mniejszą niż $1$, wbrew \textbf{2}. W takim razie $|x|_1 = |x|_2^a$ jest prawdą. Jeżeli $|x|_1 = 1$, to (na mocy \textbf{2}. użytego wobec $x$ lub $1/x$) $|x|_2 = 1$, wszystko gra. Zauważmy wreszcie, że równość dla pewnego $x$ implikuje równość dla jego potęg: $|x_0^n|_1 = |x_0^n|_2^a$.
 
-Teraz możemy założyć, że $|x|_k \neq 1$ i $|x|_k \neq |x_0|_k$ dla $k = 1,2$. Tak jak przed chwilunią, ustalmy takie $b$, że $|x|_1 = |x|_2^b$ -- to oznacza, że $|x^n|_1 = |x^n|_2^b$ dla $n\in\mathbb N$. W szczególności możemy założyć, że $|x|_1 < 1$ (jeśli tak nie jest, to zastąpmy $x$ przez $1/x$), co implikuje $|x|_2 < 1$. Chcemy pokazać, że $a = b$. Ustalmy dwie liczby naturalne, $u$ i $t$. Zlogarytmujemy pierwszą i ostatnią nierówność stronami. \[|x|_1^u < |x_0|_1^t \iff \left|\frac{x^u}{x_0^t}\right|_1 < 1 \iff \left|\frac{x^u}{x_0^t}\right|_2 < 1 \iff |x|_2^u < |x_0|_2^t.\]
-\[\frac{u}{t} < \frac{\log |x_0|_1}{\log |x|_1} \iff \frac{u}{t} < \frac{\log |x_0|_2}{\log |x|_2}.\]
+Teraz możemy założyć, że $|x|_k \neq 1$ i $|x|_k \neq |x_0|_k$ dla $k = 1,2$. Tak jak przed chwilunią, ustalmy takie $b$, że $|x|_1 = |x|_2^b$ -- to oznacza, że $|x^n|_1 = |x^n|_2^b$ dla $n\in\mathbb N$. W szczególności możemy założyć, że $|x|_1 < 1$ (jeśli tak nie jest, to zastąpmy $x$ przez $1/x$), co implikuje $|x|_2 < 1$. Chcemy pokazać, że $a = b$. Ustalmy dwie liczby naturalne, $u$ i $t$. Zlogarytmujemy pierwszą i ostatnią nierówność stronami. \begin{equation*}|x|_1^u < |x_0|_1^t \iff \left|\frac{x^u}{x_0^t}\right|_1 < 1 \iff \left|\frac{x^u}{x_0^t}\right|_2 < 1 \iff |x|_2^u < |x_0|_2^t.\end{equation*}
+\begin{equation*}\frac{u}{t} < \frac{\log |x_0|_1}{\log |x|_1} \iff \frac{u}{t} < \frac{\log |x_0|_2}{\log |x|_2}.\end{equation*}
 
 Zbiór ułamków mniejszych niż pierwszy iloraz i zbiór ułamków mniejszych niż drugi iloraz są tym samym zbiorem. Zbiór liczb wymiernych jest gęsty, więc oba ilorazy muszą być równe! $\star$: ustalmy $|x_0|_1 = |x|_2^a$ i $|x|_1 = |x|_2^b$, wtedy pierwszy iloraz będzie równy $a$, zaś drugi będzie równy $b$.
-\[\frac{\log |x_0|_1}{\log |x|_1} = \frac{\log |x_0|_2}{\log |x|_2} \iff \frac{\log |x_0|_1}{\log |x_0|_2} = \frac{\log |x|_1}{\log |x|_2} \overset{\star}{\iff} a = b\]
+\begin{equation*}\frac{\log |x_0|_1}{\log |x|_1} = \frac{\log |x_0|_2}{\log |x|_2} \iff \frac{\log |x_0|_1}{\log |x_0|_2} = \frac{\log |x|_1}{\log |x|_2} \overset{\star}{\iff} a = b\end{equation*}
 
 \textbf{Trzecia}. Na mocy założenia mamy $|x-a|_1 < r \Leftrightarrow |x-a|_2^a < r \Leftrightarrow |x-a|_2 < r^{1/a}$,
 czyli każda kula otwarta odnośnie pierwszej wartości bezwzględnej jet otwartą kulą (choć o innym promieniu) odnośnie drugiej wartości bezwzględnej, więc topologie przez nie indukowane są identyczne [dlaczego?], a same wartości bezwzględne są równoważne.\end{proof}
@@ -381,7 +398,7 @@ Uff! Nadszedł wreszcie czas na jedno z ważniejszych twierdzeń, z dowodem któ
 
 \begin{fkt}[Ostrowski, 1916] Każda nietrywialna norma $|\cdot|$ na $\mathbb Q$ jest równoważna z normą $|\cdot|_p$ dla $p \in \mathbb P \cup \{\infty\}$.\end{fkt}
 
-\textbf{Dowód}. Załóżmy najpierw, że $|\cdot|$ jest archimedesowska. Niech $n_0 \in\mathbb N$ będzie najmniejszą liczbą, dla której $|n_0| > 1$. Możemy wskazać teraz $a\in\mathbb R_+$ taką, że $|n_0| = n_0^a$. Zapiszmy teraz dowolną liczbę $n\in\mathbb N$ w pozycyjnym systemie o podstawie $n_0$: \[n = a_0 + a_1 n_0 + \cdots + a_s n_0^s, \text{ gdzie }0 \le a_i < n_0 \text{ i } a_s \neq 0, \text{ zaś } s = \left\lfloor\frac{\log n}{\log n_0}\right\rfloor, \text{ bo }n_0^s \le n < n_0^{s+1}.\]
+\textbf{Dowód}. Załóżmy najpierw, że $|\cdot|$ jest archimedesowska. Niech $n_0 \in\mathbb N$ będzie najmniejszą liczbą, dla której $|n_0| > 1$. Możemy wskazać teraz $a\in\mathbb R_+$ taką, że $|n_0| = n_0^a$. Zapiszmy teraz dowolną liczbę $n\in\mathbb N$ w pozycyjnym systemie o podstawie $n_0$: \begin{equation*}n = a_0 + a_1 n_0 + \cdots + a_s n_0^s, \text{ gdzie }0 \le a_i < n_0 \text{ i } a_s \neq 0, \text{ zaś } s = \left\lfloor\frac{\log n}{\log n_0}\right\rfloor, \text{ bo }n_0^s \le n < n_0^{s+1}.\end{equation*}
 Ze względu na wybór $n_0$ mamy $a_i < n$, czyli $|a_1| \le 1 < |n| $. To wystarcza do oszacowania $|n|$ z góry:
 \begin{align*}
 |n| = 
@@ -398,8 +415,8 @@ Skorzystamy jeszcze raz z rozwinięcia $n$, by odwrócić tę nierówność.
 |n| & \overset{\star_1}{\ge}
 \left|n_0^{s+1}\right| - \left|n_0^{s+1} - n\right| \overset{\star_2}{\ge}
 n_0^{a(s+1)} - \left(n_0^{s+1} - n\right)^a \\ & \overset{\star_3}{\ge} 
-n_0^{a(s+1)} - \left(n_0^{s+1} - n_0^s\right)^a  \\ & \overset{\star_4}{=}
-n_0^{a(s+1)} \left[1 - \left( 1 - \frac{1}{n_0}\right)^a\right]  \overset{\star_5}{=}
+n_0^{a(s+1)} - \left(n_0^{s+1} - n_0^s\right)^a \\ & \overset{\star_4}{=}
+n_0^{a(s+1)} \left[1 - \left( 1 - \frac{1}{n_0}\right)^a\right] \overset{\star_5}{=}
 C' n_0^{a(s+1)} \overset{\star_6}{\ge}
 C' n^a 
 \end{align*}
@@ -419,8 +436,6 @@ Rozpatrzmy teraz drugi przypadek, gdy $|\cdot|$ jest niearchimedesowska. Niech $
 
 \begin{prbh}W naszym dowodzie jest pewna luka -- gdybyśmy wiedzieli, że $n_0 = 2$, to wszystko byłoby w porządku. Niestety, $n_0$ może okazać się być czymś dużo większym. Jeżeli $n < n_0$, to $s = 0$, czyli rozwinięciem $n$ w pozycyjnym systemie o podstawie $n_0$ to po prostu $n$. Co teraz?\end{prbh}
 \textbf{Product Formula}. \textbf{$Q$ nie jest zupełne}. \textbf{Ciągi Cauchy'ego}.
-\end{multicols}
-{}
 %\end{multicols}
 
 % PROBLEM 43
@@ -432,7 +447,7 @@ Rozpatrzmy teraz drugi przypadek, gdy $|\cdot|$ jest niearchimedesowska. Niech $
 %\begin{multicols}{2}
 
 \begin{sol}Kolejno: $3$, $7$, $0$, $4$, $2$, $0$, $0$, $1$.\end{sol}
-\begin{sol}Sugestywna wskazówka: jeśli $\alpha$ to potęga, w jakiej wchodzi $p$ w rozkładzie na czynniki pierwsze $n!$, to\[\alpha = \sum_{i=1}^{\infty} \left[\frac{n}{p^i}\right]\]\end{sol}
+\begin{sol}Sugestywna wskazówka: jeśli $\alpha$ to potęga, w jakiej wchodzi $p$ w rozkładzie na czynniki pierwsze $n!$, to\begin{equation*}\alpha = \sum_{i=1}^{\infty} \left[\frac{n}{p^i}\right]\end{equation*}\end{sol}
 \begin{sol}Patrz poprzednie ćwiczenie.\end{sol}
 \begin{sol}Co możesz powiedzieć o waluacji $v_p(x)$ dla dowolnego $p\in\mathbb P$?\end{sol}
 \begin{sol}Wystarczy policzyć waluacje i skorzystać z definicji: $1/7$, $1/7$, $1$, $343$.\end{sol}
@@ -440,10 +455,10 @@ Rozpatrzmy teraz drugi przypadek, gdy $|\cdot|$ jest niearchimedesowska. Niech $
 \begin{sol}Ustalenie $c=p$ pozwala zapisać Product Formula w ładniejszej postaci.\end{sol}
 
 \begin{sol}Dodawanie -- potrzebna będzie nierówność trójkąta:
-$d(x+y, x_0 + y_0) = |(x+y) -(x_0+y_0) | =\\=  |(x-x_0)+ (y-y_0)| \le |x-x_0| + |y-y_0|$
+$d(x+y, x_0 + y_0) = |(x+y) -(x_0+y_0) | =\\= |(x-x_0)+ (y-y_0)| \le |x-x_0| + |y-y_0|$
 Mnożenie -- odrobina spostrzegawczości może być przydatna, bowiem $xy - x_0y_0 = x(y-y_0) + y_0(x-x_0)$. Wreszcie odwracanie, tutaj można użyć tożsamości $1/x - 1/{x_0} = {(x_0-x)}/{xx_0}$.\end{sol}
 
-\begin{sol}$1$, $5$, $5$.  \end{sol}
+\begin{sol}$1$, $5$, $5$. \end{sol}
 
 \begin{sol}Dla $r = 0$ nasza kula degeneruje się do punktu, który nie jest zbiorem otwartym (chyba, że wartość bezwzględna była trywialna). Dla porównania, otwarte kule o zerowym promeniu są zbiorami pustymi, a zatem są otwarte i domknięte niezależnie od okoliczności.\end{sol}
 
@@ -457,10 +472,9 @@ Mnożenie -- odrobina spostrzegawczości może być przydatna, bowiem $xy - x_0y
 %\begin{center}\textbf{\Huge Alternatywne dowody}\end{center}
 \section*{Alternatywne dowody}
 \textbf{Dowód tw. Ostrowskiego, część druga}. Rozpatrzmy teraz drugi przypadek, gdy $|\cdot|$ jest niearchimedesowska. Niech $n_0$ będzie najmniejszą liczbą, która spełnia $|n| \le 1$ (norma ma być nietrywialna!). Okazuje się, że $n_0$ musi być liczbą pierwszą -- jeśli bowiem $n_0 = n_1 \cdot n_2$ i $1 < n_1, n_2 < n_0$, to $|n_1| = |n_2| = 1$, czyli $1 > |n_0| = |n_1| \cdot |n_2| = 1$, sprzeczność. Niech $p = n_0$. Twierdzimy, że $|q| = 1$, jeśli $q$ jest liczbą pierwszą różną od $p$. Najłatwiej dowodzić tego nie wprost: jeśli $|q| < 1$, to dla pewnego dużego $N$ mamy $|q^N| = |q|^N \le 1/2$, dla pewnego dużego $M$ mamy $|p^M| < 1/2$. Możemy znaleźć dwie liczby całkowite $a, b$ takie, że $bp^M + aq^N = 1$, gdyż $p^M$ i $q^N$ są względnie pierwsze. Ale
-\[1 =|1| \le |bp^M| + |aq^N| = |b| \cdot |p^M| + |a| \cdot |q^N|\le |p^M| + |q^N| < \frac{1}{2} + \frac{1}{2} = 1\]
+\begin{equation*}1 =|1| \le |bp^M| + |aq^N| = |b| \cdot |p^M| + |a| \cdot |q^N|\le |p^M| + |q^N| < \frac{1}{2} + \frac{1}{2} = 1\end{equation*}
 To już prawie koniec dowodu: każda liczba całkowita $n$ może zostać zapisana jako iloczyn liczb pierwszych $n = p_1^{\alpha_1} \cdot p_2^{\alpha_2} \cdot \ldots \cdot p_r^{\alpha_r} $. Z tego wynika, że $|a| = |p_1|^{\alpha_1} \cdot |p_2|^{\alpha_2} \cdot \ldots \cdot |p_r|^{\alpha_r}$. Jedyne $|p_i|$ różne od jedynki to $|p|$, wtedy $\alpha_i = v_p(n)$ i $|n| = |p|^{v_p(n)}$. Korzystamy z multiplikatywności, by rozszerzyć rozumowanie na $\mathbb Q$: ta norma jest równoważna z $|\cdot|_p$.
 \newpage
-%*\end{multicols}
 
 \end{document}
 
